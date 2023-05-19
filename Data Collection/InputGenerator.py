@@ -16,44 +16,46 @@
 import json
 from itertools import permutations
 import matplotlib
+import numpy as np
 
-def orderedInputGenerator(size):
-    
-    inputs = []
-    positions = [[-5, -5, 0], [5, -5, 0], [5, 5, 0], [-5, 5, 0], [0, 0, 0]]
-    currents = [0, 0, 0, 0, 0, 0, 0, 0]
-    pointOne = [0, 0, 0]
-    pointTwo = [0, 0, 0]
-    currentInput = {'I1': 0, 
-                    'I2': 0,
-                    'I3': 0,
-                    'I4': 0,
-                    'I5': 0,
-                    'I6': 0,
-                    'I7': 0,
-                    'I8': 0,
-                    'X1': 0,
-                    'Y1': 0,
-                    'Z1': 0,
-                    'X2': 0,
-                    'Y2': 0,
-                    'Z2': 0}
+def inputGenerator(x, y, z, current):
 
-    return inputs
+    currentIn = np.random.rand(8, 1) * (current[1] - current[0]) + current[0]
+    xyIn = np.random.rand(4, 1) * (x[1] - x[0]) + x[0]
+    zIn = np.random.rand(2, 1) * (z[1] - z[0]) + z[0]
+    xyz1 = np.array([xyIn[0], xyIn[1], zIn[0]])
+    xyz2 = np.array([xyIn[2], xyIn[3], zIn[1]])
 
+    input = np.vstack((currentIn, xyz1))
+    input = np.vstack((input, xyz2))
+
+    return np.around(input, 3)
+
+def jsonStacker(input):
+
+    inputMap = {}
+    for cur in range(8):
+        inputMap["I" + str(cur+1)] = input[cur][0]
+    for pos in range(2):
+        inputMap["X" + str(pos+1)] = input[(3*pos) + 8][0]
+        inputMap["Y" + str(pos+1)] = input[(3*pos) + 9][0]
+        inputMap["Z" + str(pos+1)] = input[(3*pos) + 10][0]
+
+    return inputMap
 
 # Set the initials for our training data
-totalSize = 3000
-orderedSize = 1280
-randomSize = totalSize - orderedSize
+totalSize = 3
 xRange = [-100, 100]   # in mm
 yRange = [-100, 100]   # in mm
 zRange = [0, 100]   # in mm
 currentRange = [-18, 18]   # in Ampere
 inputs = []
 
-orderedInputs = orderedInputGenerator(orderedSize)
-randomInputs = []
+for i in range(totalSize):
+    inputArr = inputGenerator(xRange, yRange, zRange, currentRange)
+    inputs.append(jsonStacker(inputArr))
+
+print(inputs)
 
 jsonInput = json.dumps(inputs, indent=4)
 
