@@ -15,7 +15,8 @@
 
 import json
 from itertools import permutations
-import matplotlib.pyplot as plt
+import plotly.express as px
+import pandas as pd
 import numpy as np
 
 def inputGenerator(x, y, z, current):
@@ -39,7 +40,7 @@ def inputGenerator(x, y, z, current):
     # Return the array after rounding it to 3 decimal place
     return np.around(input, 3)
 
-def jsonStacker(input):
+def jsonStacker(inputVec):
     """
     Helper function to convet the input vector into a dictionary
     Format: 8 currents, 6 coordinate positions used for 2 points
@@ -48,43 +49,45 @@ def jsonStacker(input):
 
     # Set the current values
     for cur in range(8):
-        inputMap["I" + str(cur+1)] = input[cur][0]
+        inputMap["I" + str(cur+1)] = inputVec[cur][0]
 
     # Set the position values
     for pos in range(2):
-        inputMap["X" + str(pos+1)] = input[(3*pos) + 8][0]
-        inputMap["Y" + str(pos+1)] = input[(3*pos) + 9][0]
-        inputMap["Z" + str(pos+1)] = input[(3*pos) + 10][0]
+        inputMap["X" + str(pos+1)] = inputVec[(3*pos) + 8][0]
+        inputMap["Y" + str(pos+1)] = inputVec[(3*pos) + 9][0]
+        inputMap["Z" + str(pos+1)] = inputVec[(3*pos) + 10][0]
 
     return inputMap
 
-def inputPlot(input):
-    """
-    Helper function to plot data about the randomly generated dataset
-    Used to analyze the distribution of the data
-    """
-    fig = plt.figure()
-    dataPlot = fig.add_subplot(projection='3d')
+def datasetPlot(inputFile, fileNumber):
+    
+    dataframe = dataframeAssembler(inputFile)
+    fig = px.scatter_3d(dataframe, x='x', y='y', z='z', color=dataframe['size'] ** 2, size=dataframe['size'], color_continuous_scale='rainbow')
+    fig.write_html("./Data Collection/Input/Distribution Files/Input" + str(fileNumber) + "_Distribution.html")
 
-    for dataset in input:
-        for point in range(2):
-            x = dataset["X" + str(point + 1)]
-            y = dataset["Y" + str(point + 1)]
-            z = dataset["Z" + str(point + 1)]
-            dataPlot.scatter(x, y, z, 'o')
+def dataframeAssembler(inputFile):
 
-    dataPlot.set_xlabel('x axis')
-    dataPlot.set_ylabel('y axis')
-    dataPlot.set_zlabel('z axis')
+    struct = {'x': [], 'y': [], 'z': []}
+    for data in inputFile:
+        struct['x'].append((data['X1'] // 20) * 20 + 10)
+        struct['y'].append((data['Y1'] // 20) * 20 + 10)
+        struct['z'].append((data['Z1'] // 20) * 20 + 10)
+        struct['x'].append((data['X2'] // 20) * 20 + 10)
+        struct['y'].append((data['Y2'] // 20) * 20 + 10)
+        struct['z'].append((data['Z2'] // 20) * 20 + 10)
 
-    plt.savefig("./Data Collection/JSON Files/Input/input_distribution.pdf", bbox_inches='tight')
-    plt.show()
+    df = pd.DataFrame(data=struct)
+    dfSize = df.groupby(df.columns.tolist(), as_index=False).size()
+
+    print(df)
+    print(dfSize)
+    return dfSize
 
 """
 Main function
 """
 # Set the initials for our training data
-numOfData = 5   # number of datasets in each json file
+numOfData = 10   # number of datasets in each json file
 numOfFiles = 3   # number of json files
 xRange = [-100, 100]   # in mm
 yRange = [-100, 100]   # in mm
@@ -105,12 +108,9 @@ for file in range(numOfFiles):
     # Write the dataset into a json file
     jsonInput = json.dumps(fileInputs, indent=4)
 
-    with open("./Data Collection/JSON Files/Input/Input" + str(file + 1) + ".json", "w") as outfile:
+    with open("./Data Collection/Input/JSON Files/Input" + str(file + 1) + ".json", "w") as outfile:
         outfile.write(jsonInput)
 
     # Clear the list for other files
+    datasetPlot(fileInputs, file + 1)
     fileInputs.clear()
-
-print(allInputs)
-inputPlot(allInputs)
-
