@@ -6,18 +6,18 @@
  | |__| | | | |  __/ |    | |  | | | (__| | | (_) | | | (_) | |_) | (_) | |_| | (__\__ \ | |___| (_| | |_) |
  |_____/|_|_|_|\___|_|    |_|  |_|_|\___|_|  \___/|_|  \___/|_.__/ \___/ \__|_|\___|___/ |______\__,_|_.__/ 
  
--> Filename: InputGenerator.py
+-> Filename: input-helpers.py
 -> Project: Electromagnetic Navigation System Calibration
 -> Author: Ardavan Alaei Fard
--> Description: A helper script to generate the input arrays, save them into JSON files, and analyze the data distribution
--> Starting Date: May 18, 2023
+-> Description: A helper script including all of the functions that are called in input_generator.py
+-> Starting Date: May 25, 2023
 """
 
-import json
 import plotly.express as px
 from scipy import stats
 import pandas as pd
 import numpy as np
+
 
 def inputGenerator(x, y, z, current):
     """
@@ -40,6 +40,7 @@ def inputGenerator(x, y, z, current):
     # Return the array after rounding it to 3 decimal place
     return np.around(input, 3)
 
+
 def jsonStacker(inputVec):
     """
     Helper function to convet the input vector into a dictionary
@@ -58,6 +59,7 @@ def jsonStacker(inputVec):
         inputMap["Z" + str(pos+1)] = inputVec[(3*pos) + 10][0]
 
     return inputMap
+
 
 def posDatasetPlot(inputData, fileNumber, type):
     """
@@ -96,6 +98,7 @@ def posDatasetPlot(inputData, fileNumber, type):
         # Save the html file of the map
         fig.write_html("./Data Collection/Input/Distribution Files/Input" + str(fileNumber) + "_Distribution.html")
 
+
 def dataframeAssembler(inputData):
     """
     Helper function to create the dataframe based on the given data
@@ -116,38 +119,3 @@ def dataframeAssembler(inputData):
     dfRounded = dfRounded.sort_values(by=['size'])   # dataframe for the defined subsections
     
     return df, dfRounded
-
-"""
-Main function
-"""
-# Set the initials for our training data
-numOfData = 5   # number of datasets in each json file
-numOfFiles = 3   # number of json files
-xRange = [-100, 100]   # in mm
-yRange = [-100, 100]   # in mm
-zRange = [0, 100]   # in mm
-currentRange = [-18, 18]   # in Ampere
-fileInputs = []
-allInputs = []
-
-for file in range(numOfFiles):
-
-    # Generate a list of inputs for one of the files and save them in our lists
-    for data in range(numOfData):
-        inputArr = inputGenerator(xRange, yRange, zRange, currentRange)
-        inputDict = jsonStacker(inputArr)
-        fileInputs.append(inputDict)
-        allInputs.append(inputDict)
-
-    # Write the dataset into a json file
-    jsonInput = json.dumps(fileInputs, indent=4)
-
-    with open("./Data Collection/Input/JSON Files/Input" + str(file + 1) + ".json", "w") as outfile:
-        outfile.write(jsonInput)
-
-    # Plot the data distribution and clear the list for other files
-    posDatasetPlot(fileInputs, file + 1, "json data")
-    fileInputs.clear()
-
-# Plot the data distribution for all points
-posDatasetPlot(allInputs, 0, "all data")
