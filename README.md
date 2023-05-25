@@ -1,2 +1,2 @@
 # Microrobotics-Lab
-Electromagnetic Navigation System calibration
+Electromagnetic Navigation System Calibration
