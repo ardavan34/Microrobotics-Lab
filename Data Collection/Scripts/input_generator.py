@@ -21,7 +21,7 @@ Main function
 """
 # Set the initials for our training data
 numOfData = 5   # number of datasets in each json file
-numOfFiles = 3   # number of json files
+numOfFiles = 4   # number of json files
 xRange = [-100, 100]   # in mm
 yRange = [-100, 100]   # in mm
 zRange = [0, 100]   # in mm
