@@ -9,13 +9,13 @@
 -> Filename: InputGenerator.py
 -> Project: Electromagnetic Navigation System Calibration
 -> Author: Ardavan Alaei Fard
--> Description: A helper script to generate the input arrays and save them into JSON file
+-> Description: A helper script to generate the input arrays, save them into JSON files, and analyze the data distribution
 -> Starting Date: May 18, 2023
 """
 
 import json
-from itertools import permutations
 import plotly.express as px
+from scipy import stats
 import pandas as pd
 import numpy as np
 
@@ -59,35 +59,69 @@ def jsonStacker(inputVec):
 
     return inputMap
 
-def datasetPlot(inputFile, fileNumber):
+def posDatasetPlot(inputData, fileNumber, type):
+    """
+    Helper function to plot the randomly generated positions on a 3D map
+    Used to analyze the data distribution
+    """
+    dataframe, dataframeRounded = dataframeAssembler(inputData)
+
+    # Plot distribution map for all datasets
+    if type == "all data":
+        # Set up the map
+        mapTitle = "Distribution map for all datasets"
+        fig = px.scatter_3d(dataframeRounded, x='x', y='y', z='z', title=mapTitle, 
+                            color=dataframeRounded['size'] ** 2, size='size', color_continuous_scale='RdBu_r',
+                            labels={'x': 'x axis [mm]', 'y': 'y axis [mm]', 'z': 'z axis [mm]', 'color': 'size^2'})
+        fig.update_layout(title={'text': mapTitle, 'y':0.9, 'x':0.5,'xanchor': 'center', 'yanchor': 'top'})
+        # Save the html file of the map
+        fig.write_html("./Data Collection/Input/Distribution Files/AllInput_Distribution.html")
+
+        # Save the information about the datasets into a text file
+        with open("./Data Collection/Input/Distribution Files/AllInput_Data.txt", 'w') as outfile:
+            df_string = dataframeRounded.to_string(header=True, index=True)
+            outfile.write(df_string)
     
-    dataframe = dataframeAssembler(inputFile)
-    fig = px.scatter_3d(dataframe, x='x', y='y', z='z', color=dataframe['size'] ** 2, size=dataframe['size'], color_continuous_scale='rainbow')
-    fig.write_html("./Data Collection/Input/Distribution Files/Input" + str(fileNumber) + "_Distribution.html")
+    # Plot density map for single json file
+    elif type == "json data":
+        # Calculate the density
+        kernel = stats.gaussian_kde([dataframe.x, dataframe.y, dataframe.z])
+        dataframe['density'] = kernel([dataframe.x, dataframe.y, dataframe.z])
+        
+        # Set up the map
+        mapTitle = "Density map for dataset #" + str(fileNumber)
+        fig = px.scatter_3d(dataframe, x='x', y='y', z='z', color='density', color_continuous_scale='RdBu_r', opacity=0.9, title=mapTitle,
+                            labels={'x': 'x axis [mm]', 'y': 'y axis [mm]', 'z': 'z axis [mm]'}) 
+        fig.update_layout(title={'text': mapTitle, 'y':0.9, 'x':0.5,'xanchor': 'center', 'yanchor': 'top'})
+        # Save the html file of the map
+        fig.write_html("./Data Collection/Input/Distribution Files/Input" + str(fileNumber) + "_Distribution.html")
 
-def dataframeAssembler(inputFile):
-
+def dataframeAssembler(inputData):
+    """
+    Helper function to create the dataframe based on the given data
+    """
+    # Set up the dictionary
     struct = {'x': [], 'y': [], 'z': []}
-    for data in inputFile:
-        struct['x'].append((data['X1'] // 20) * 20 + 10)
-        struct['y'].append((data['Y1'] // 20) * 20 + 10)
-        struct['z'].append((data['Z1'] // 20) * 20 + 10)
-        struct['x'].append((data['X2'] // 20) * 20 + 10)
-        struct['y'].append((data['Y2'] // 20) * 20 + 10)
-        struct['z'].append((data['Z2'] // 20) * 20 + 10)
+    for data in inputData:
+        struct['x'].append(data['X1'])
+        struct['y'].append(data['Y1'])
+        struct['z'].append(data['Z1'])
+        struct['x'].append(data['X2'])
+        struct['y'].append(data['Y2'])
+        struct['z'].append(data['Z2'])
 
-    df = pd.DataFrame(data=struct)
-    dfSize = df.groupby(df.columns.tolist(), as_index=False).size()
-
-    print(df)
-    print(dfSize)
-    return dfSize
+    df = pd.DataFrame(data=struct)   # raw dataframe
+    dfRounded = (df // 20) * 20 + 10
+    dfRounded = dfRounded.groupby(df.columns.tolist(), as_index=False).size()
+    dfRounded = dfRounded.sort_values(by=['size'])   # dataframe for the defined subsections
+    
+    return df, dfRounded
 
 """
 Main function
 """
 # Set the initials for our training data
-numOfData = 10   # number of datasets in each json file
+numOfData = 5   # number of datasets in each json file
 numOfFiles = 3   # number of json files
 xRange = [-100, 100]   # in mm
 yRange = [-100, 100]   # in mm
@@ -111,6 +145,9 @@ for file in range(numOfFiles):
     with open("./Data Collection/Input/JSON Files/Input" + str(file + 1) + ".json", "w") as outfile:
         outfile.write(jsonInput)
 
-    # Clear the list for other files
-    datasetPlot(fileInputs, file + 1)
+    # Plot the data distribution and clear the list for other files
+    posDatasetPlot(fileInputs, file + 1, "json data")
     fileInputs.clear()
+
+# Plot the data distribution for all points
+posDatasetPlot(allInputs, 0, "all data")
