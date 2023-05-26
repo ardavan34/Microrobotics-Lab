@@ -13,7 +13,10 @@
 -> Starting Date: May 25, 2023
 """
 
+import json
 import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 from scipy import stats
 import pandas as pd
 import numpy as np
@@ -80,12 +83,15 @@ def posDataAnalysis(inputData, fileNumber):
                             labels={'x': 'x axis [mm]', 'y': 'y axis [mm]', 'z': 'z axis [mm]', 'color': 'size^2'})
         fig.update_layout(title={'text': mapTitle, 'y':0.9, 'x':0.5,'xanchor': 'center', 'yanchor': 'top'})
         # Save the html file of the map
-        fig.write_html("./Data Collection/Input/Distribution Files/AllInput_Distribution.html")
+        fig.write_html("./Data Collection/Input/Distribution Analysis/AllData_PosDistribution.html")
+        
+        # Write the dataframe into a json file
+        result = dataframeRounded.to_json(orient="records")
+        parsed = json.loads(result)
+        jsonResult = json.dumps(parsed, indent=4)
 
-        # Save the information about the datasets into a text file
-        with open("./Data Collection/Input/Distribution Files/AllInput_Data.txt", 'w') as outfile:
-            df_string = dataframeRounded.to_string(header=True, index=True)
-            outfile.write(df_string)
+        with open("./Data Collection/Input/Distribution Analysis/AllData_PosInfo.json", "w") as outfile:
+            outfile.write(jsonResult)
     
     # Plot density map for single json file
     else:
@@ -99,7 +105,7 @@ def posDataAnalysis(inputData, fileNumber):
                             labels={'x': 'x axis [mm]', 'y': 'y axis [mm]', 'z': 'z axis [mm]'}) 
         fig.update_layout(title={'text': mapTitle, 'y':0.9, 'x':0.5,'xanchor': 'center', 'yanchor': 'top'})
         # Save the html file of the map
-        fig.write_html("./Data Collection/Input/Distribution Files/Input" + str(fileNumber) + "_Distribution.html")
+        fig.write_html("./Data Collection/Input/Distribution Analysis/Input" + str(fileNumber) + "_Distribution.html")
 
 
 def posDataframe(inputData):
@@ -127,12 +133,27 @@ def currentDataAnalysis(inputData, fileNumber):
     Helper function to plot the randomly generated currents on a histogram
     Used to analyze the data distribution
     """
-    dataframe, dataframeCount = currentDataframe(inputData)
+    dataframe, dataframeInfo = currentDataframe(inputData)
 
     if fileNumber == 0:
-        fig = px.histogram(dataframe, x='current', color='coil', nbins=40)
-        print(dataframeCount)
-        fig.show()
+        fig = make_subplots(rows=4, cols=2, x_title="current [A]", y_title="count")
+        for row in range(1, 5):
+            for col in range(1, 3):
+                coilNum = row * col + (col == 1) * (row - 1)
+                df = dataframe[dataframe['coil'] == 'I' + str(coilNum)]
+                plot = go.Histogram(x=df['current'], nbinsx=40, name="Coil " + str(coilNum))
+                fig.append_trace(plot, row, col)
+                
+        # Save the html file of the map
+        fig.write_html("./Data Collection/Input/Distribution Analysis/AllData_CurrentDistribution.html")
+
+        # Write the dataframe into a json file
+        result = dataframeInfo.to_json(orient="records")
+        parsed = json.loads(result)
+        jsonResult = json.dumps(parsed, indent=4)
+
+        with open("./Data Collection/Input/Distribution Analysis/AllData_CurrentInfo.json", "w") as outfile:
+            outfile.write(jsonResult)
 
 
 def currentDataframe(inputData):
@@ -153,5 +174,6 @@ def currentDataframe(inputData):
     dfCount = df.groupby(df.columns.tolist(), as_index=False).size()
     dfCount["total current"] = dfCount['size'] * dfCount['current']
     dfCount["current avg"] = dfCount.groupby(by="coil")["total current"].transform('sum') / dataNum
+    del dfCount["total current"]
 
     return df, dfCount
