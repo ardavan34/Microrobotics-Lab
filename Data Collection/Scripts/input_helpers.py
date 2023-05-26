@@ -33,9 +33,7 @@ def inputGenerator(x, y, z, current):
     # Create the arrays for the positions and stack the arrays into one input
     xyz1 = np.array([xIn[0], yIn[0], zIn[0]])
     xyz2 = np.array([xIn[1], yIn[1], zIn[1]])
-
-    input = np.vstack((currentIn, xyz1))
-    input = np.vstack((input, xyz2))
+    input = np.vstack((currentIn, xyz1, xyz2))
 
     # Return the array after rounding it to 3 decimal place
     return np.around(input, 3)
@@ -61,15 +59,20 @@ def jsonStacker(inputVec):
     return inputMap
 
 
-def posDatasetPlot(inputData, fileNumber, type):
+def dataAnalysis(inputData, fileNumber):
+    posDataAnalysis(inputData, fileNumber)
+    currentDataAnalysis(inputData, fileNumber)
+
+
+def posDataAnalysis(inputData, fileNumber):
     """
     Helper function to plot the randomly generated positions on a 3D map
     Used to analyze the data distribution
     """
-    dataframe, dataframeRounded = dataframeAssembler(inputData)
+    dataframe, dataframeRounded = posDataframe(inputData)
 
     # Plot distribution map for all datasets
-    if type == "all data":
+    if fileNumber == 0:
         # Set up the map
         mapTitle = "Distribution map for all datasets"
         fig = px.scatter_3d(dataframeRounded, x='x', y='y', z='z', title=mapTitle, 
@@ -85,7 +88,7 @@ def posDatasetPlot(inputData, fileNumber, type):
             outfile.write(df_string)
     
     # Plot density map for single json file
-    elif type == "json data":
+    else:
         # Calculate the density
         kernel = stats.gaussian_kde([dataframe.x, dataframe.y, dataframe.z])
         dataframe['density'] = kernel([dataframe.x, dataframe.y, dataframe.z])
@@ -99,19 +102,17 @@ def posDatasetPlot(inputData, fileNumber, type):
         fig.write_html("./Data Collection/Input/Distribution Files/Input" + str(fileNumber) + "_Distribution.html")
 
 
-def dataframeAssembler(inputData):
+def posDataframe(inputData):
     """
     Helper function to create the dataframe based on the given data
     """
     # Set up the dictionary
     struct = {'x': [], 'y': [], 'z': []}
     for data in inputData:
-        struct['x'].append(data['X1'])
-        struct['y'].append(data['Y1'])
-        struct['z'].append(data['Z1'])
-        struct['x'].append(data['X2'])
-        struct['y'].append(data['Y2'])
-        struct['z'].append(data['Z2'])
+        for pos in range(1, 3):
+            struct['x'].append(data['X' + str(pos)])
+            struct['y'].append(data['Y' + str(pos)])
+            struct['z'].append(data['Z' + str(pos)])
 
     df = pd.DataFrame(data=struct)   # raw dataframe
     dfRounded = (df // 20) * 20 + 10
@@ -119,3 +120,38 @@ def dataframeAssembler(inputData):
     dfRounded = dfRounded.sort_values(by=['size'])   # dataframe for the defined subsections
     
     return df, dfRounded
+
+
+def currentDataAnalysis(inputData, fileNumber):
+    """
+    Helper function to plot the randomly generated currents on a histogram
+    Used to analyze the data distribution
+    """
+    dataframe, dataframeCount = currentDataframe(inputData)
+
+    if fileNumber == 0:
+        fig = px.histogram(dataframe, x='current', color='coil', nbins=40)
+        print(dataframeCount)
+        fig.show()
+
+
+def currentDataframe(inputData):
+    """
+    Helper function to create the dataframe based on the given data
+    """
+    dataNum = 0
+    # Set up the dictionary
+    struct = {'coil': [], 'current': []}
+    for data in inputData:
+        dataNum += 1
+        for curr in range(1, 9):
+            struct['coil'].append('I' + str(curr))
+            struct['current'].append(data['I' + str(curr)])
+
+    df = pd.DataFrame(data=struct)   # raw dataframe
+    df = round(df)   # rounded to nearest decimal
+    dfCount = df.groupby(df.columns.tolist(), as_index=False).size()
+    dfCount["total current"] = dfCount['size'] * dfCount['current']
+    dfCount["current avg"] = dfCount.groupby(by="coil")["total current"].transform('sum') / dataNum
+
+    return df, dfCount

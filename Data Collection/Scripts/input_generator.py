@@ -20,8 +20,8 @@ from input_helpers import *
 Main function
 """
 # Set the initials for our training data
-numOfData = 5   # number of datasets in each json file
-numOfFiles = 4   # number of json files
+numOfData = 100   # number of datasets in each json file
+numOfFiles = 50   # number of json files
 xRange = [-100, 100]   # in mm
 yRange = [-100, 100]   # in mm
 zRange = [0, 100]   # in mm
@@ -45,8 +45,8 @@ for file in range(numOfFiles):
         outfile.write(jsonInput)
 
     # Plot the data distribution and clear the list for other files
-    posDatasetPlot(fileInputs, file + 1, "json data")
+    dataAnalysis(fileInputs, file + 1)
     fileInputs.clear()
 
 # Plot the data distribution for all points
-posDatasetPlot(allInputs, 0, "all data")
+dataAnalysis(allInputs, 0)
