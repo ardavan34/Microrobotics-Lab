@@ -63,6 +63,9 @@ def jsonStacker(inputVec):
 
 
 def dataAnalysis(inputData, fileNumber):
+    """
+    Function to complete both all analysis for both positions and currents
+    """
     posDataAnalysis(inputData, fileNumber)
     currentDataAnalysis(inputData, fileNumber)
 
@@ -72,21 +75,21 @@ def posDataAnalysis(inputData, fileNumber):
     Helper function to plot the randomly generated positions on a 3D map
     Used to analyze the data distribution
     """
-    dataframe, dataframeRounded = posDataframe(inputData)
+    dataframe = posDataframe(inputData, fileNumber)
 
     # Plot distribution map for all datasets
     if fileNumber == 0:
         # Set up the map
         mapTitle = "Distribution map for all datasets"
-        fig = px.scatter_3d(dataframeRounded, x='x', y='y', z='z', title=mapTitle, 
-                            color=dataframeRounded['size'] ** 2, size='size', color_continuous_scale='RdBu_r',
+        fig = px.scatter_3d(dataframe, x='x', y='y', z='z', title=mapTitle, 
+                            color=dataframe['size'] ** 2, size='size', color_continuous_scale='RdBu_r',
                             labels={'x': 'x axis [mm]', 'y': 'y axis [mm]', 'z': 'z axis [mm]', 'color': 'size^2'})
         fig.update_layout(title={'text': mapTitle, 'y':0.9, 'x':0.5,'xanchor': 'center', 'yanchor': 'top'})
         # Save the html file of the map
         fig.write_html("./Data Collection/Input/Distribution Analysis/AllData_PosDistribution.html")
         
         # Write the dataframe into a json file
-        result = dataframeRounded.to_json(orient="records")
+        result = dataframe.to_json(orient="records")
         parsed = json.loads(result)
         jsonResult = json.dumps(parsed, indent=4)
 
@@ -105,10 +108,10 @@ def posDataAnalysis(inputData, fileNumber):
                             labels={'x': 'x axis [mm]', 'y': 'y axis [mm]', 'z': 'z axis [mm]'}) 
         fig.update_layout(title={'text': mapTitle, 'y':0.9, 'x':0.5,'xanchor': 'center', 'yanchor': 'top'})
         # Save the html file of the map
-        fig.write_html("./Data Collection/Input/Distribution Analysis/Input" + str(fileNumber) + "_Distribution.html")
+        fig.write_html("./Data Collection/Input/Distribution Analysis/Input" + str(fileNumber) + "_PosDistribution.html")
 
 
-def posDataframe(inputData):
+def posDataframe(inputData, fileNumber):
     """
     Helper function to create the dataframe based on the given data
     """
@@ -121,11 +124,16 @@ def posDataframe(inputData):
             struct['z'].append(data['Z' + str(pos)])
 
     df = pd.DataFrame(data=struct)   # raw dataframe
-    dfRounded = (df // 20) * 20 + 10
-    dfRounded = dfRounded.groupby(df.columns.tolist(), as_index=False).size()
-    dfRounded = dfRounded.sort_values(by=['size'])   # dataframe for the defined subsections
+    if fileNumber != 0:
+        return df
     
-    return df, dfRounded
+    # Modify the dataframe into the rounded version for overall analysis
+    else:
+        df= (df // 20) * 20 + 10
+        df = df.groupby(df.columns.tolist(), as_index=False).size()
+        df = df.sort_values(by=['size'])   # dataframe for the defined subsections
+    
+    return df
 
 
 def currentDataAnalysis(inputData, fileNumber):
@@ -133,17 +141,17 @@ def currentDataAnalysis(inputData, fileNumber):
     Helper function to plot the randomly generated currents on a histogram
     Used to analyze the data distribution
     """
-    dataframe, dataframeInfo = currentDataframe(inputData)
+    dataframe, dataframeInfo = currentDataframe(inputData, fileNumber)
+
+    fig = make_subplots(rows=4, cols=2, x_title="current [A]", y_title="count")
+    for row in range(1, 5):
+        for col in range(1, 3):
+            coilNum = row * col + (col == 1) * (row - 1)
+            df = dataframe[dataframe['coil'] == 'I' + str(coilNum)]
+            plot = go.Histogram(x=df['current'], nbinsx=40, name="Coil " + str(coilNum))
+            fig.append_trace(plot, row, col)
 
     if fileNumber == 0:
-        fig = make_subplots(rows=4, cols=2, x_title="current [A]", y_title="count")
-        for row in range(1, 5):
-            for col in range(1, 3):
-                coilNum = row * col + (col == 1) * (row - 1)
-                df = dataframe[dataframe['coil'] == 'I' + str(coilNum)]
-                plot = go.Histogram(x=df['current'], nbinsx=40, name="Coil " + str(coilNum))
-                fig.append_trace(plot, row, col)
-                
         # Save the html file of the map
         fig.write_html("./Data Collection/Input/Distribution Analysis/AllData_CurrentDistribution.html")
 
@@ -155,8 +163,12 @@ def currentDataAnalysis(inputData, fileNumber):
         with open("./Data Collection/Input/Distribution Analysis/AllData_CurrentInfo.json", "w") as outfile:
             outfile.write(jsonResult)
 
+    else:
+        # Save the html file of the map
+        fig.write_html("./Data Collection/Input/Distribution Analysis/Input" + str(fileNumber) + "_CurrentDistribution.html")
 
-def currentDataframe(inputData):
+
+def currentDataframe(inputData, fileNumber):
     """
     Helper function to create the dataframe based on the given data
     """
@@ -171,9 +183,14 @@ def currentDataframe(inputData):
 
     df = pd.DataFrame(data=struct)   # raw dataframe
     df = round(df)   # rounded to nearest decimal
-    dfCount = df.groupby(df.columns.tolist(), as_index=False).size()
-    dfCount["total current"] = dfCount['size'] * dfCount['current']
-    dfCount["current avg"] = dfCount.groupby(by="coil")["total current"].transform('sum') / dataNum
-    del dfCount["total current"]
+    if fileNumber != 0:
+        return df, []
+    
+    else:
+        dfAll = df.groupby(df.columns.tolist(), as_index=False).size()
+        dfAll["total current"] = dfAll['size'] * dfAll['current']
+        dfAll["current avg"] = dfAll.groupby(by="coil")["total current"].transform('sum') / dataNum
+        del dfAll["total current"]
+        dfAll = dfAll.sort_values(by=['current avg'])
 
-    return df, dfCount
+    return df, dfAll

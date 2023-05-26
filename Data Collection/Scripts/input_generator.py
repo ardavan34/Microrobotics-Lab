@@ -20,8 +20,8 @@ from input_helpers import *
 Main function
 """
 # Set the initials for our training data
-numOfData = 2   # number of datasets in each json file
-numOfFiles = 2   # number of json files
+numOfData = 100   # number of datasets in each json file
+numOfFiles = 50   # number of json files
 xRange = [-100, 100]   # in mm
 yRange = [-100, 100]   # in mm
 zRange = [0, 100]   # in mm
