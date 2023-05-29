@@ -29,6 +29,7 @@ allOutputs = []
 result = {}
 result["dataset"] = datasetNum
 axis = ['X', 'Y', 'Z']
+magneticField = ['Bx', 'By', 'Bz']
 start = 0   # index of input in 'data' to start simulation with (included)
 end = 1   # index of input in 'data' to end simulation with (excluded)
 
@@ -56,14 +57,27 @@ for input in range(start, end):
     model.solve('Study 1')   # name of solution is set on COMSOL
 
     # Export the point evalution result as a text file
-    model.export('Data_Point_1')   # name and location of text file is set on COMSOL
+    model.export('Data_Point_1')   # write. name and location of text file is set on COMSOL
     model.export('Data_Point_2')   # append. name and location of text file is set on COMSOL
 
     # Parse the text file
     with open("./Data Collection/Output/SimulationResult.txt", "r") as outputFile:
+        point = 1
         for line in outputFile:
             dataList = [float(val) for val in line.split()]
             result["input"] = input
+            for i in range(1, 4):
+                result[magneticField[i] + str(point)] = dataList[i+2]
+            point += 1
 
     # Print statement for completion
+    allOutputs.append(result)
+    result.clear()
+
+    # Write the dataset into a json file
+    jsonInput = json.dumps(allOutputs, indent=4)
+
+    with open("./Data Collection/Output/Output" + str(datasetNum) + ".json", "a") as outfile:
+        outfile.write(jsonInput)
+
     print("Simulation #" + str(input) + " is successfully completed")
