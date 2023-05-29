@@ -16,6 +16,7 @@
 import json
 import mph
 from os.path import exists
+from simulation_helpers import *
 
 """
 Main function
@@ -25,17 +26,18 @@ datasetNum = 23   # select the dataset to query
 dataset = open("./Data Collection/Input/Input Datasets/Input" + str(datasetNum) + ".json")
 data = json.load(dataset)
 
-# Setup variables to us
-outputs = []
-result = {}
-result["dataset"] = datasetNum
+# Set up variables
 axis = ['X', 'Y', 'Z']
-magneticField = ['Bx', 'By', 'Bz']
-filePath = "./Data Collection/Output/Output" + str(datasetNum) + ".json"
-if exists(filePath) == False:
-    newFile = open("./Data Collection/Output/Output" + str(datasetNum) + ".json", "x")
 start = 0   # index of input in 'data' to start simulation with (included)
 end = 3   # index of input in 'data' to end simulation with (excluded)
+
+# Paths of files used in the script
+jsonFilePath = "./Data Collection/Output/Output" + str(datasetNum) + ".json"
+txtFilePath = "./Data Collection/Output/SimulationResult.txt"
+
+# Create the JSON file if not already created
+if exists(jsonFilePath) == False:
+    newFile = open(jsonFilePath, "x")
 
 # Loading the COMSOL model
 client = mph.start()
@@ -64,24 +66,9 @@ for input in range(start, end):
     model.export('Data_Point_1')   # write. name and location of text file is set on COMSOL
     model.export('Data_Point_2')   # append. name and location of text file is set on COMSOL
 
-    # Parse the text file
-    with open("./Data Collection/Output/SimulationResult.txt", "r") as txtFile:
-        point = 1
-        for line in txtFile:
-            dataList = [float(val) for val in line.split()]
-            result["input"] = input
-            for i in range(1, 4):
-                result[magneticField[i-1] + str(point)] = dataList[i+2]
-            point += 1
-
-    with open("./Data Collection/Output/Output" + str(datasetNum) + ".json") as jsonFile:
-        outputs = json.load(jsonFile)
-        outputs.append(result)
+    # Parse the exported data and save them in the json file
+    result = txtParser(txtFilePath, input + 1)
+    output = readFile(input, jsonFilePath, result)
+    writeFile(jsonFilePath, output)
     
-        # Write the dataset into a json file
-        jsonInput = json.dumps(outputs, indent=4)
-        jsonFile.write(jsonInput)
-    
-    result.clear()
-
-    print("Simulation #" + str(input) + " is successfully completed")
+    print("Simulation #" + str(input + 1) + " is successfully completed")
