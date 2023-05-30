@@ -22,14 +22,14 @@ from simulation_helpers import *
 Main function
 """
 # Select and load the dataset
-datasetNum = 23   # select the dataset to query
+datasetNum = 1   # select the dataset to query
 dataset = open("./Data Collection/Input/Input Datasets/Input" + str(datasetNum) + ".json")
 data = json.load(dataset)
 
 # Set up variables
 axis = ['X', 'Y', 'Z']
 start = 0   # index of input in 'data' to start simulation with (included)
-end = 3   # index of input in 'data' to end simulation with (excluded)
+end = len(data)   # index of input in 'data' to end simulation with (excluded)
 
 # Paths of files used in the script
 jsonFilePath = "./Data Collection/Output/Output" + str(datasetNum) + ".json"
