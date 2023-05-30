@@ -19,7 +19,7 @@ from input_helpers import dataAnalysis
 """
 Main function
 """
-datasetNum = 23   # select the dataset to query
+datasetNum = 1   # select the dataset to query
 dataset = open("./Data Collection/Input/Input Datasets/Input" + str(datasetNum) + ".json")
 
 # Load the dataset and create the visual data analysis files

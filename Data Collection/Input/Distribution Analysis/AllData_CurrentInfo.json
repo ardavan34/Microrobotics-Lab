@@ -1,1778 +1,1778 @@
 [
     {
-        "coil": "I3",
-        "current": 17.0,
-        "size": 139,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 3.0,
-        "size": 137,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 4.0,
-        "size": 137,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 5.0,
-        "size": 147,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 6.0,
-        "size": 148,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 7.0,
-        "size": 138,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 8.0,
-        "size": 104,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 2.0,
-        "size": 126,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
+        "coil": "I2",
         "current": 9.0,
-        "size": 137,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 11.0,
-        "size": 133,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 12.0,
-        "size": 141,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 13.0,
-        "size": 137,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 14.0,
-        "size": 141,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 15.0,
-        "size": 125,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 16.0,
-        "size": 147,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 10.0,
-        "size": 132,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 1.0,
-        "size": 154,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 0.0,
-        "size": 132,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -1.0,
-        "size": 149,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -16.0,
-        "size": 117,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -15.0,
-        "size": 146,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -14.0,
-        "size": 169,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -13.0,
-        "size": 124,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -12.0,
-        "size": 153,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -11.0,
-        "size": 127,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -10.0,
-        "size": 150,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -9.0,
-        "size": 147,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -8.0,
-        "size": 138,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -7.0,
-        "size": 138,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -6.0,
-        "size": 130,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -5.0,
-        "size": 148,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -4.0,
-        "size": 143,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -3.0,
         "size": 122,
-        "current avg": -0.148
+        "current avg": -0.1286
     },
     {
-        "coil": "I3",
-        "current": -2.0,
-        "size": 144,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": 18.0,
-        "size": 76,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -17.0,
-        "size": 146,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I3",
-        "current": -18.0,
-        "size": 78,
-        "current avg": -0.148
-    },
-    {
-        "coil": "I4",
-        "current": -16.0,
-        "size": 140,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 4.0,
-        "size": 153,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 5.0,
-        "size": 139,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 6.0,
-        "size": 136,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 7.0,
-        "size": 165,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 8.0,
-        "size": 152,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 9.0,
-        "size": 129,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 3.0,
-        "size": 145,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 10.0,
-        "size": 115,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 12.0,
-        "size": 154,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 13.0,
-        "size": 138,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 14.0,
-        "size": 131,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 15.0,
-        "size": 146,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 16.0,
-        "size": 148,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 17.0,
-        "size": 131,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 11.0,
-        "size": 139,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 2.0,
-        "size": 113,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 1.0,
-        "size": 135,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 0.0,
-        "size": 129,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -15.0,
-        "size": 155,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -14.0,
-        "size": 154,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -13.0,
-        "size": 146,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -12.0,
-        "size": 142,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -11.0,
-        "size": 133,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -10.0,
-        "size": 139,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -9.0,
-        "size": 132,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -8.0,
-        "size": 132,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -7.0,
-        "size": 127,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -6.0,
-        "size": 147,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -5.0,
-        "size": 127,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
+        "coil": "I2",
         "current": -4.0,
-        "size": 123,
-        "current avg": -0.094
+        "size": 134,
+        "current avg": -0.1286
     },
     {
-        "coil": "I4",
-        "current": -3.0,
-        "size": 150,
-        "current avg": -0.094
+        "coil": "I2",
+        "current": -5.0,
+        "size": 135,
+        "current avg": -0.1286
     },
     {
-        "coil": "I4",
-        "current": -2.0,
-        "size": 131,
-        "current avg": -0.094
+        "coil": "I2",
+        "current": -6.0,
+        "size": 143,
+        "current avg": -0.1286
     },
     {
-        "coil": "I4",
-        "current": -1.0,
-        "size": 123,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -17.0,
-        "size": 154,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": -18.0,
-        "size": 76,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I4",
-        "current": 18.0,
-        "size": 71,
-        "current avg": -0.094
-    },
-    {
-        "coil": "I5",
-        "current": 14.0,
-        "size": 157,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
+        "coil": "I2",
         "current": -7.0,
-        "size": 148,
-        "current avg": 0.0078
+        "size": 145,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
         "current": -8.0,
-        "size": 139,
-        "current avg": 0.0078
+        "size": 141,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
         "current": -9.0,
-        "size": 123,
-        "current avg": 0.0078
+        "size": 136,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
+        "current": -3.0,
+        "size": 144,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
         "current": -10.0,
-        "size": 146,
-        "current avg": 0.0078
+        "size": 127,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
-        "current": -11.0,
-        "size": 150,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
+        "coil": "I2",
         "current": -12.0,
-        "size": 125,
-        "current avg": 0.0078
+        "size": 143,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
         "current": -13.0,
         "size": 138,
-        "current avg": 0.0078
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
         "current": -14.0,
-        "size": 125,
-        "current avg": 0.0078
+        "size": 141,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
         "current": -15.0,
-        "size": 140,
-        "current avg": 0.0078
+        "size": 141,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
         "current": -16.0,
-        "size": 154,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": -17.0,
-        "size": 139,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": -18.0,
-        "size": 69,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 15.0,
-        "size": 130,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 16.0,
-        "size": 137,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 17.0,
-        "size": 156,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": -6.0,
-        "size": 138,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 18.0,
-        "size": 66,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": -5.0,
-        "size": 131,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": -3.0,
-        "size": 142,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 12.0,
-        "size": 133,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 11.0,
-        "size": 151,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 10.0,
-        "size": 157,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 9.0,
-        "size": 112,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 8.0,
-        "size": 134,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 7.0,
-        "size": 125,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 6.0,
         "size": 159,
-        "current avg": 0.0078
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
-        "current": 5.0,
-        "size": 133,
-        "current avg": 0.0078
+        "coil": "I2",
+        "current": -17.0,
+        "size": 122,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
-        "current": 4.0,
+        "coil": "I2",
+        "current": -11.0,
+        "size": 137,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": -2.0,
+        "size": 143,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": -1.0,
+        "size": 150,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 0.0,
+        "size": 151,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 16.0,
+        "size": 155,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 15.0,
+        "size": 132,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 14.0,
+        "size": 150,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 13.0,
+        "size": 120,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 12.0,
+        "size": 131,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 11.0,
+        "size": 145,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 10.0,
+        "size": 143,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 8.0,
+        "size": 153,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 7.0,
+        "size": 131,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 6.0,
         "size": 139,
-        "current avg": 0.0078
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
+        "current": 5.0,
+        "size": 127,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 4.0,
+        "size": 134,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
         "current": 3.0,
-        "size": 156,
-        "current avg": 0.0078
+        "size": 147,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
         "current": 2.0,
-        "size": 135,
-        "current avg": 0.0078
+        "size": 132,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
         "current": 1.0,
-        "size": 140,
-        "current avg": 0.0078
+        "size": 142,
+        "current avg": -0.1286
     },
     {
-        "coil": "I5",
+        "coil": "I2",
+        "current": -18.0,
+        "size": 79,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 17.0,
+        "size": 115,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I2",
+        "current": 18.0,
+        "size": 73,
+        "current avg": -0.1286
+    },
+    {
+        "coil": "I3",
+        "current": -15.0,
+        "size": 123,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 5.0,
+        "size": 158,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 6.0,
+        "size": 132,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 7.0,
+        "size": 150,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 8.0,
+        "size": 154,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 9.0,
+        "size": 152,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 10.0,
+        "size": 142,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 11.0,
+        "size": 131,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -18.0,
+        "size": 77,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 12.0,
+        "size": 127,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 13.0,
+        "size": 143,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 14.0,
+        "size": 135,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 15.0,
+        "size": 144,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 16.0,
+        "size": 152,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 17.0,
+        "size": 130,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 18.0,
+        "size": 53,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 4.0,
+        "size": 111,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -16.0,
+        "size": 145,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 3.0,
+        "size": 125,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 1.0,
+        "size": 124,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -14.0,
+        "size": 136,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -13.0,
+        "size": 130,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -12.0,
+        "size": 146,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -11.0,
+        "size": 145,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -10.0,
+        "size": 144,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -9.0,
+        "size": 167,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -8.0,
+        "size": 129,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -7.0,
+        "size": 131,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -6.0,
+        "size": 163,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -5.0,
+        "size": 139,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -4.0,
+        "size": 144,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -3.0,
+        "size": 144,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -2.0,
+        "size": 133,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -1.0,
+        "size": 147,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 0.0,
+        "size": 131,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": 2.0,
+        "size": 129,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I3",
+        "current": -17.0,
+        "size": 134,
+        "current avg": -0.0866
+    },
+    {
+        "coil": "I1",
+        "current": -18.0,
+        "size": 74,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 18.0,
+        "size": 65,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -2.0,
+        "size": 139,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -3.0,
+        "size": 132,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -4.0,
+        "size": 136,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -5.0,
+        "size": 152,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -6.0,
+        "size": 120,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -7.0,
+        "size": 154,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -9.0,
+        "size": 162,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -10.0,
+        "size": 145,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -11.0,
+        "size": 149,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -12.0,
+        "size": 136,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -13.0,
+        "size": 125,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -14.0,
+        "size": 161,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -15.0,
+        "size": 131,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -16.0,
+        "size": 126,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -17.0,
+        "size": 131,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -1.0,
+        "size": 146,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 0.0,
+        "size": 156,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": -8.0,
+        "size": 141,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 2.0,
+        "size": 125,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 1.0,
+        "size": 105,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 17.0,
+        "size": 127,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 16.0,
+        "size": 133,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 15.0,
+        "size": 144,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 14.0,
+        "size": 146,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 12.0,
+        "size": 142,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 11.0,
+        "size": 140,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 10.0,
+        "size": 134,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 13.0,
+        "size": 149,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 8.0,
+        "size": 141,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 7.0,
+        "size": 139,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 6.0,
+        "size": 131,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 5.0,
+        "size": 154,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 4.0,
+        "size": 135,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 3.0,
+        "size": 139,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I1",
+        "current": 9.0,
+        "size": 135,
+        "current avg": -0.0564
+    },
+    {
+        "coil": "I4",
+        "current": 2.0,
+        "size": 151,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 8.0,
+        "size": 147,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 3.0,
+        "size": 142,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 4.0,
+        "size": 136,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 5.0,
+        "size": 147,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 6.0,
+        "size": 150,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 7.0,
+        "size": 126,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 9.0,
+        "size": 146,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 17.0,
+        "size": 144,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 11.0,
+        "size": 127,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 12.0,
+        "size": 143,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 13.0,
+        "size": 129,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 14.0,
+        "size": 136,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 15.0,
+        "size": 144,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 16.0,
+        "size": 130,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 1.0,
+        "size": 150,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 10.0,
+        "size": 142,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 0.0,
+        "size": 133,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": 18.0,
+        "size": 67,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -2.0,
+        "size": 146,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -1.0,
+        "size": 120,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -17.0,
+        "size": 148,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -16.0,
+        "size": 136,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -15.0,
+        "size": 134,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -14.0,
+        "size": 149,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -13.0,
+        "size": 150,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -12.0,
+        "size": 130,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -11.0,
+        "size": 121,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -18.0,
+        "size": 76,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -9.0,
+        "size": 132,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -8.0,
+        "size": 145,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -7.0,
+        "size": 145,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -6.0,
+        "size": 151,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -5.0,
+        "size": 137,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -4.0,
+        "size": 128,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -10.0,
+        "size": 125,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I4",
+        "current": -3.0,
+        "size": 137,
+        "current avg": -0.0198
+    },
+    {
+        "coil": "I7",
+        "current": 2.0,
+        "size": 129,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 3.0,
+        "size": 135,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 4.0,
+        "size": 130,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 5.0,
+        "size": 135,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 6.0,
+        "size": 133,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 7.0,
+        "size": 130,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 8.0,
+        "size": 131,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 11.0,
+        "size": 153,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 10.0,
+        "size": 139,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 12.0,
+        "size": 126,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 13.0,
+        "size": 136,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 14.0,
+        "size": 151,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 15.0,
+        "size": 149,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 1.0,
+        "size": 160,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": 9.0,
+        "size": 145,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
         "current": 0.0,
         "size": 145,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": -1.0,
-        "size": 127,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": -2.0,
-        "size": 135,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": -4.0,
-        "size": 150,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I5",
-        "current": 13.0,
-        "size": 116,
-        "current avg": 0.0078
-    },
-    {
-        "coil": "I7",
-        "current": -18.0,
-        "size": 68,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 15.0,
-        "size": 127,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 1.0,
-        "size": 138,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 2.0,
-        "size": 133,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 3.0,
-        "size": 128,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 4.0,
-        "size": 124,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 5.0,
-        "size": 162,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 6.0,
-        "size": 137,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 0.0,
-        "size": 130,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 7.0,
-        "size": 133,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 9.0,
-        "size": 130,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 10.0,
-        "size": 134,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 11.0,
-        "size": 140,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 12.0,
-        "size": 161,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 13.0,
-        "size": 139,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 16.0,
-        "size": 160,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 8.0,
-        "size": 156,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -1.0,
-        "size": 126,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -2.0,
-        "size": 150,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -3.0,
-        "size": 118,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -17.0,
-        "size": 161,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -16.0,
-        "size": 124,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -15.0,
-        "size": 140,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -14.0,
-        "size": 144,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -13.0,
-        "size": 135,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -12.0,
-        "size": 136,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -11.0,
-        "size": 147,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -10.0,
-        "size": 131,
-        "current avg": 0.0082
+        "current avg": -0.0194
     },
     {
         "coil": "I7",
         "current": -9.0,
-        "size": 148,
-        "current avg": 0.0082
+        "size": 152,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": -2.0,
+        "size": 107,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": -16.0,
+        "size": 141,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": -15.0,
+        "size": 136,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": -14.0,
+        "size": 161,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": -13.0,
+        "size": 144,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": -12.0,
+        "size": 140,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": -11.0,
+        "size": 139,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": -1.0,
+        "size": 130,
+        "current avg": -0.0194
+    },
+    {
+        "coil": "I7",
+        "current": -10.0,
+        "size": 144,
+        "current avg": -0.0194
     },
     {
         "coil": "I7",
         "current": -8.0,
-        "size": 149,
-        "current avg": 0.0082
+        "size": 117,
+        "current avg": -0.0194
     },
     {
         "coil": "I7",
         "current": -7.0,
-        "size": 130,
-        "current avg": 0.0082
+        "size": 111,
+        "current avg": -0.0194
     },
     {
         "coil": "I7",
         "current": -6.0,
-        "size": 157,
-        "current avg": 0.0082
+        "size": 129,
+        "current avg": -0.0194
     },
     {
         "coil": "I7",
         "current": -5.0,
-        "size": 127,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": -4.0,
-        "size": 139,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 17.0,
-        "size": 114,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 18.0,
-        "size": 85,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I7",
-        "current": 14.0,
-        "size": 139,
-        "current avg": 0.0082
-    },
-    {
-        "coil": "I6",
-        "current": 13.0,
-        "size": 141,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -18.0,
-        "size": 88,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 12.0,
-        "size": 156,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 11.0,
-        "size": 149,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 10.0,
-        "size": 132,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 9.0,
-        "size": 148,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 8.0,
-        "size": 141,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 7.0,
-        "size": 136,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 6.0,
-        "size": 124,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 5.0,
-        "size": 143,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 4.0,
-        "size": 140,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 3.0,
-        "size": 134,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 2.0,
-        "size": 140,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 1.0,
-        "size": 146,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 0.0,
-        "size": 138,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -1.0,
-        "size": 139,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -3.0,
         "size": 142,
-        "current avg": 0.0254
+        "current avg": -0.0194
     },
     {
-        "coil": "I6",
+        "coil": "I7",
         "current": -4.0,
-        "size": 141,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -5.0,
-        "size": 118,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -6.0,
-        "size": 134,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -7.0,
-        "size": 126,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -8.0,
-        "size": 131,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -9.0,
-        "size": 127,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -10.0,
-        "size": 141,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -11.0,
-        "size": 135,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -12.0,
-        "size": 131,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -13.0,
         "size": 144,
-        "current avg": 0.0254
+        "current avg": -0.0194
     },
     {
-        "coil": "I6",
-        "current": -14.0,
-        "size": 141,
-        "current avg": 0.0254
+        "coil": "I7",
+        "current": -3.0,
+        "size": 155,
+        "current avg": -0.0194
     },
     {
-        "coil": "I6",
-        "current": -15.0,
-        "size": 137,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -16.0,
-        "size": 153,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -17.0,
-        "size": 133,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": 14.0,
-        "size": 133,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
-        "current": -2.0,
-        "size": 151,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
+        "coil": "I7",
         "current": 16.0,
-        "size": 169,
-        "current avg": 0.0254
+        "size": 119,
+        "current avg": -0.0194
     },
     {
-        "coil": "I6",
-        "current": 18.0,
-        "size": 59,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I6",
+        "coil": "I7",
         "current": 17.0,
-        "size": 125,
-        "current avg": 0.0254
+        "size": 166,
+        "current avg": -0.0194
     },
     {
-        "coil": "I6",
-        "current": 15.0,
-        "size": 134,
-        "current avg": 0.0254
-    },
-    {
-        "coil": "I8",
+        "coil": "I7",
         "current": -18.0,
         "size": 71,
-        "current avg": 0.0778
+        "current avg": -0.0194
     },
     {
-        "coil": "I8",
-        "current": -4.0,
-        "size": 143,
-        "current avg": 0.0778
+        "coil": "I7",
+        "current": 18.0,
+        "size": 72,
+        "current avg": -0.0194
     },
     {
-        "coil": "I8",
-        "current": -5.0,
-        "size": 133,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -6.0,
-        "size": 135,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -7.0,
-        "size": 141,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -8.0,
-        "size": 119,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -9.0,
-        "size": 147,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -10.0,
-        "size": 132,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -12.0,
-        "size": 131,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -13.0,
-        "size": 126,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -14.0,
-        "size": 146,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -15.0,
-        "size": 161,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -16.0,
-        "size": 156,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
+        "coil": "I7",
         "current": -17.0,
-        "size": 135,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -3.0,
-        "size": 139,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -11.0,
-        "size": 140,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -2.0,
-        "size": 152,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 0.0,
-        "size": 127,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 15.0,
-        "size": 133,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 14.0,
-        "size": 144,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 13.0,
-        "size": 161,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 12.0,
-        "size": 148,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 11.0,
-        "size": 129,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 10.0,
-        "size": 127,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 9.0,
-        "size": 148,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 8.0,
-        "size": 143,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 7.0,
-        "size": 128,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 6.0,
-        "size": 148,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 5.0,
-        "size": 126,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 4.0,
-        "size": 145,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 3.0,
-        "size": 128,
-        "current avg": 0.0778
+        "size": 153,
+        "current avg": -0.0194
     },
     {
         "coil": "I8",
         "current": 2.0,
-        "size": 126,
-        "current avg": 0.0778
+        "size": 134,
+        "current avg": 0.0438
     },
     {
         "coil": "I8",
-        "current": 1.0,
-        "size": 115,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": -1.0,
-        "size": 139,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 16.0,
-        "size": 147,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 18.0,
-        "size": 87,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I8",
-        "current": 17.0,
-        "size": 144,
-        "current avg": 0.0778
-    },
-    {
-        "coil": "I2",
-        "current": 18.0,
-        "size": 64,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -3.0,
-        "size": 138,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -4.0,
-        "size": 139,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -5.0,
-        "size": 136,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -6.0,
-        "size": 140,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -7.0,
-        "size": 119,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -8.0,
-        "size": 155,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -10.0,
+        "current": 3.0,
         "size": 123,
-        "current avg": 0.1896
+        "current avg": 0.0438
     },
     {
-        "coil": "I2",
-        "current": -11.0,
-        "size": 134,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -12.0,
-        "size": 122,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -13.0,
-        "size": 135,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -14.0,
-        "size": 146,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -15.0,
-        "size": 140,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -16.0,
-        "size": 142,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -17.0,
-        "size": 125,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -18.0,
-        "size": 70,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -2.0,
-        "size": 117,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -1.0,
-        "size": 150,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": -9.0,
-        "size": 134,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 1.0,
-        "size": 160,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 0.0,
-        "size": 135,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 16.0,
-        "size": 136,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 15.0,
-        "size": 138,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 14.0,
-        "size": 145,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 13.0,
-        "size": 151,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 12.0,
-        "size": 134,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 11.0,
-        "size": 175,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 10.0,
-        "size": 144,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 17.0,
-        "size": 135,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 8.0,
-        "size": 141,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 7.0,
-        "size": 119,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 6.0,
-        "size": 112,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
-        "current": 5.0,
-        "size": 132,
-        "current avg": 0.1896
-    },
-    {
-        "coil": "I2",
+        "coil": "I8",
         "current": 4.0,
-        "size": 179,
-        "current avg": 0.1896
+        "size": 132,
+        "current avg": 0.0438
     },
     {
-        "coil": "I2",
-        "current": 3.0,
+        "coil": "I8",
+        "current": 5.0,
+        "size": 131,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 6.0,
+        "size": 162,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 7.0,
+        "size": 117,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 8.0,
+        "size": 148,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -18.0,
+        "size": 59,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 10.0,
+        "size": 134,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 11.0,
         "size": 133,
-        "current avg": 0.1896
+        "current avg": 0.0438
     },
     {
-        "coil": "I2",
-        "current": 2.0,
-        "size": 160,
-        "current avg": 0.1896
+        "coil": "I8",
+        "current": 12.0,
+        "size": 122,
+        "current avg": 0.0438
     },
     {
-        "coil": "I2",
+        "coil": "I8",
+        "current": 13.0,
+        "size": 145,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 14.0,
+        "size": 149,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 15.0,
+        "size": 144,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 16.0,
+        "size": 146,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 1.0,
+        "size": 151,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
         "current": 9.0,
+        "size": 148,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 0.0,
+        "size": 148,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -2.0,
+        "size": 151,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -17.0,
+        "size": 152,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -16.0,
+        "size": 130,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -15.0,
+        "size": 120,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -14.0,
+        "size": 136,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -13.0,
+        "size": 144,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -12.0,
         "size": 142,
-        "current avg": 0.1896
+        "current avg": 0.0438
     },
     {
-        "coil": "I1",
-        "current": -3.0,
-        "size": 160,
-        "current avg": 0.2758
+        "coil": "I8",
+        "current": -1.0,
+        "size": 134,
+        "current avg": 0.0438
     },
     {
-        "coil": "I1",
+        "coil": "I8",
+        "current": -10.0,
+        "size": 158,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -8.0,
+        "size": 156,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -7.0,
+        "size": 157,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -6.0,
+        "size": 119,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": -5.0,
+        "size": 128,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
         "current": -4.0,
         "size": 137,
-        "current avg": 0.2758
+        "current avg": 0.0438
     },
     {
-        "coil": "I1",
-        "current": -5.0,
-        "size": 146,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -6.0,
-        "size": 133,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -7.0,
-        "size": 133,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -8.0,
-        "size": 155,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -9.0,
-        "size": 135,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -13.0,
-        "size": 148,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -11.0,
-        "size": 126,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -12.0,
-        "size": 135,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -14.0,
-        "size": 124,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -15.0,
-        "size": 135,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -16.0,
-        "size": 129,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -17.0,
+        "coil": "I8",
+        "current": -3.0,
         "size": 131,
-        "current avg": 0.2758
+        "current avg": 0.0438
     },
     {
-        "coil": "I1",
-        "current": -2.0,
-        "size": 142,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": -10.0,
+        "coil": "I8",
+        "current": -9.0,
         "size": 122,
-        "current avg": 0.2758
+        "current avg": 0.0438
     },
     {
-        "coil": "I1",
+        "coil": "I8",
+        "current": -11.0,
+        "size": 149,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 18.0,
+        "size": 72,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I8",
+        "current": 17.0,
+        "size": 136,
+        "current avg": 0.0438
+    },
+    {
+        "coil": "I5",
+        "current": 16.0,
+        "size": 129,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 1.0,
+        "size": 151,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 2.0,
+        "size": 143,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 3.0,
+        "size": 124,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 4.0,
+        "size": 151,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 5.0,
+        "size": 140,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 6.0,
+        "size": 134,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 7.0,
+        "size": 130,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 8.0,
+        "size": 144,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 9.0,
+        "size": 145,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 10.0,
+        "size": 170,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 11.0,
+        "size": 121,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 12.0,
+        "size": 144,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 13.0,
+        "size": 121,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 14.0,
+        "size": 143,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 18.0,
+        "size": 55,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 0.0,
+        "size": 138,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
         "current": -1.0,
-        "size": 122,
-        "current avg": 0.2758
+        "size": 162,
+        "current avg": 0.0576
     },
     {
-        "coil": "I1",
+        "coil": "I5",
+        "current": -2.0,
+        "size": 140,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -3.0,
+        "size": 130,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -18.0,
+        "size": 67,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -17.0,
+        "size": 145,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -16.0,
+        "size": 143,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -15.0,
+        "size": 140,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -14.0,
+        "size": 120,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -13.0,
+        "size": 133,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -12.0,
+        "size": 120,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -11.0,
+        "size": 150,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -10.0,
+        "size": 141,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -9.0,
+        "size": 131,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -8.0,
+        "size": 151,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -7.0,
+        "size": 141,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -6.0,
+        "size": 121,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -5.0,
+        "size": 150,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": -4.0,
+        "size": 132,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 17.0,
+        "size": 147,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I5",
+        "current": 15.0,
+        "size": 153,
+        "current avg": 0.0576
+    },
+    {
+        "coil": "I6",
         "current": 18.0,
         "size": 66,
-        "current avg": 0.2758
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
+        "coil": "I6",
+        "current": -18.0,
+        "size": 79,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 2.0,
+        "size": 145,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 3.0,
+        "size": 158,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 4.0,
+        "size": 132,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 5.0,
+        "size": 124,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 6.0,
+        "size": 119,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 7.0,
+        "size": 137,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
         "current": 1.0,
-        "size": 108,
-        "current avg": 0.2758
+        "size": 132,
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 17.0,
+        "coil": "I6",
+        "current": 8.0,
+        "size": 136,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 11.0,
         "size": 150,
-        "current avg": 0.2758
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 16.0,
-        "size": 142,
-        "current avg": 0.2758
+        "coil": "I6",
+        "current": 12.0,
+        "size": 125,
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 15.0,
-        "size": 149,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": 14.0,
-        "size": 135,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
+        "coil": "I6",
         "current": 13.0,
         "size": 147,
-        "current avg": 0.2758
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 12.0,
-        "size": 145,
-        "current avg": 0.2758
+        "coil": "I6",
+        "current": 14.0,
+        "size": 163,
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 11.0,
+        "coil": "I6",
+        "current": 15.0,
+        "size": 149,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 16.0,
         "size": 139,
-        "current avg": 0.2758
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 0.0,
-        "size": 140,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
+        "coil": "I6",
         "current": 10.0,
-        "size": 151,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": 8.0,
-        "size": 164,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": 7.0,
-        "size": 165,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": 6.0,
-        "size": 139,
-        "current avg": 0.2758
-    },
-    {
-        "coil": "I1",
-        "current": 5.0,
         "size": 129,
-        "current avg": 0.2758
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 4.0,
-        "size": 140,
-        "current avg": 0.2758
+        "coil": "I6",
+        "current": 0.0,
+        "size": 147,
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 3.0,
-        "size": 112,
-        "current avg": 0.2758
+        "coil": "I6",
+        "current": -1.0,
+        "size": 119,
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 2.0,
-        "size": 140,
-        "current avg": 0.2758
+        "coil": "I6",
+        "current": -2.0,
+        "size": 147,
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": 9.0,
+        "coil": "I6",
+        "current": -17.0,
+        "size": 122,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -16.0,
+        "size": 138,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -15.0,
+        "size": 143,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -14.0,
+        "size": 158,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -13.0,
+        "size": 132,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -12.0,
+        "size": 124,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -11.0,
+        "size": 110,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -10.0,
+        "size": 167,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -9.0,
+        "size": 137,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -8.0,
         "size": 146,
-        "current avg": 0.2758
+        "current avg": 0.1048
     },
     {
-        "coil": "I1",
-        "current": -18.0,
-        "size": 80,
-        "current avg": 0.2758
+        "coil": "I6",
+        "current": -7.0,
+        "size": 128,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -6.0,
+        "size": 131,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -5.0,
+        "size": 163,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -4.0,
+        "size": 131,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": -3.0,
+        "size": 134,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 17.0,
+        "size": 148,
+        "current avg": 0.1048
+    },
+    {
+        "coil": "I6",
+        "current": 9.0,
+        "size": 145,
+        "current avg": 0.1048
     }
 ]
