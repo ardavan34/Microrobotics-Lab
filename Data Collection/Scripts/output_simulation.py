@@ -22,7 +22,7 @@ from simulation_helpers import *
 Main function
 """
 # Select and load the dataset
-datasetNum = 1   # select the dataset to query
+datasetNum = 2   # select the dataset to query
 dataset = open("./Data Collection/Input/Input Datasets/Input" + str(datasetNum) + ".json")
 data = json.load(dataset)
 
