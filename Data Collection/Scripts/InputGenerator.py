@@ -6,7 +6,7 @@
  | |__| | | | |  __/ |    | |  | | | (__| | | (_) | | | (_) | |_) | (_) | |_| | (__\__ \ | |___| (_| | |_) |
  |_____/|_|_|_|\___|_|    |_|  |_|_|\___|_|  \___/|_|  \___/|_.__/ \___/ \__|_|\___|___/ |______\__,_|_.__/ 
  
--> Filename: input-generator.py
+-> Filename: InputGenerator.py
 -> Project: Electromagnetic Navigation System Calibration
 -> Author: Ardavan Alaei Fard
 -> Description: Script for generating the input arrays, saving them into JSON files, and analyzing the data distribution
@@ -14,7 +14,7 @@
 """
 
 import json
-from input_helpers import *
+from InputHelpers import *
 
 """
 Main function
