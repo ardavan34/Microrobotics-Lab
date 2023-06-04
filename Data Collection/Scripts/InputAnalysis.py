@@ -6,7 +6,7 @@
  | |__| | | | |  __/ |    | |  | | | (__| | | (_) | | | (_) | |_) | (_) | |_| | (__\__ \ | |___| (_| | |_) |
  |_____/|_|_|_|\___|_|    |_|  |_|_|\___|_|  \___/|_|  \___/|_.__/ \___/ \__|_|\___|___/ |______\__,_|_.__/ 
  
--> Filename: input_analysis.py
+-> Filename: InputAnalysis.py
 -> Project: Electromagnetic Navigation System Calibration
 -> Author: Ardavan Alaei Fard
 -> Description: Query for visual analysis of input datasets individually
@@ -14,7 +14,7 @@
 """
 
 import json
-from input_helpers import dataAnalysis
+from InputHelpers import dataAnalysis
 
 """
 Main function
