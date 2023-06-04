@@ -22,7 +22,7 @@ from SimulationHelpers import *
 Main function
 """
 # Select and load the dataset
-datasetNum = 7   # select the dataset to query
+datasetNum = 8   # select the dataset to query
 dataset = open("./Data Collection/Input/Input Datasets/Input" + str(datasetNum) + ".json")
 data = json.load(dataset)
 
@@ -43,32 +43,38 @@ if exists(jsonFilePath) == False:
 client = mph.start()
 model = client.load('system_2.0.mph')   # the mph file must be located in Microrobotics-Lab directory
 
-for input in range(start, end):
-    # Clearing the model
-    model.clear()
-    model.reset()
+for i in range(datasetNum, datasetNum+3):
+    dataset = open("./Data Collection/Input/Input Datasets/Input" + str(i) + ".json")
+    data = json.load(dataset)
+    jsonFilePath = "./Data Collection/Output/Output" + str(i) + ".json"
+    if exists(jsonFilePath) == False:
+        newFile = open(jsonFilePath, "x")
+    for input in range(start, end):
+        # Clearing the model
+        model.clear()
+        model.reset()
 
-    # Next values to calculate
-    for current in range(1, 9):
-        var = 'I' + str(current)
-        model.parameter(var, str(data[input][var]) + '[A]')
-    for pos in range(1, 3):
-        for direction in axis:
-            var = direction + str(pos)
-            model.parameter(var, str(data[input][var]) + '[mm]')
+        # Next values to calculate
+        for current in range(1, 9):
+            var = 'I' + str(current)
+            model.parameter(var, str(data[input][var]) + '[A]')
+        for pos in range(1, 3):
+            for direction in axis:
+                var = direction + str(pos)
+                model.parameter(var, str(data[input][var]) + '[mm]')
 
-    # Start simulation
-    model.build()
-    model.mesh()
-    model.solve('Study 1')   # name of solution is set on COMSOL
+        # Start simulation
+        model.build()
+        model.mesh()
+        model.solve('Study 1')   # name of solution is set on COMSOL
 
-    # Export the point evalution result as a text file
-    model.export('Data_Point_1')   # write. name and location of text file is set on COMSOL
-    model.export('Data_Point_2')   # append. name and location of text file is set on COMSOL
+        # Export the point evalution result as a text file
+        model.export('Data_Point_1')   # write. name and location of text file is set on COMSOL
+        model.export('Data_Point_2')   # append. name and location of text file is set on COMSOL
 
-    # Parse the exported data and save them in the json file
-    result = txtParser(txtFilePath, input + 1)
-    output = readFile(input, jsonFilePath, result)
-    writeFile(jsonFilePath, output)
-    
-    print("Simulation #" + str(input + 1) + " is successfully completed")
+        # Parse the exported data and save them in the json file
+        result = txtParser(txtFilePath, input + 1)
+        output = readFile(input, jsonFilePath, result)
+        writeFile(jsonFilePath, output)
+        
+        print("Simulation #" + str(input + 1) + " is successfully completed")
