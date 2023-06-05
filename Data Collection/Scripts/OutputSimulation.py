@@ -22,7 +22,8 @@ from SimulationHelpers import *
 Main function
 """
 # Select and load the dataset
-datasetNum = 8   # select the dataset to query
+datasetNum = 14   # select the dataset to query
+simNum = 1   # number of simulations to do
 dataset = open("./Data Collection/Input/Input Datasets/Input" + str(datasetNum) + ".json")
 data = json.load(dataset)
 
@@ -43,7 +44,7 @@ if exists(jsonFilePath) == False:
 client = mph.start()
 model = client.load('system_2.0.mph')   # the mph file must be located in Microrobotics-Lab directory
 
-for i in range(datasetNum, datasetNum+3):
+for i in range(datasetNum, datasetNum+simNum):
     dataset = open("./Data Collection/Input/Input Datasets/Input" + str(i) + ".json")
     data = json.load(dataset)
     jsonFilePath = "./Data Collection/Output/Output" + str(i) + ".json"
