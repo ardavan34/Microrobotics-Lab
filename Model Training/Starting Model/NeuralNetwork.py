@@ -6,28 +6,27 @@
  | |__| | | | |  __/ |    | |  | | | (__| | | (_) | | | (_) | |_) | (_) | |_| | (__\__ \ | |___| (_| | |_) |
  |_____/|_|_|_|\___|_|    |_|  |_|_|\___|_|  \___/|_|  \___/|_.__/ \___/ \__|_|\___|___/ |______\__,_|_.__/ 
 
--> Filename: Train.py
+-> Filename: NeuralNetwork.py
 -> Project: Electromagnetic Navigation System Calibration
 -> Author: Ardavan Alaei Fard
--> Description: Script for training our model
+-> Description: Class(es) for the neural network model(s) used for training
 -> Starting Date: Jun 6, 2023
 """
 
-from TrainHelpers import *
-from Dataset import ENSDataset
 import torch
-from torch.utils.data import Dataset, DataLoader
+from torch import nn
 
-"""
-Main function
-"""
-fromFile = 1
-toFile = 1
-inputMatrix, outputMatrix = datasetGenerator(fromFile, toFile + 1)
+class SimpleNeuralNetwork(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.linearRelu = nn.Sequential(
+            nn.Linear(14, 20),
+            nn.ReLU(),
+            nn.Linear(20, 20),
+            nn.ReLU(),
+            nn.Linear(20, 6)
+        )
 
-trainSet = ENSDataset(inputMatrix, outputMatrix)
-trainDataLoader = DataLoader(trainSet, batch_size=64, shuffle=False)
-
-trainInput, trainOutput = next(iter(trainDataLoader))
-print(f"Input batch shape: {trainInput.size()}")
-print(f"Output batch shape: {trainOutput.size()}")
+    def forward(self, input):
+        logits = self.linearRelu(input)
+        return logits
