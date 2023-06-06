@@ -21,11 +21,12 @@ from torch.utils.data import Dataset, DataLoader
 """
 Main function
 """
-size = 1
-inputMatrix, outputMatrix = inputOutputGenerator(size)
+fromFile = 1
+toFile = 1
+inputMatrix, outputMatrix = datasetGenerator(fromFile, toFile + 1)
 
 trainSet = ENSDataset(inputMatrix, outputMatrix)
-trainDataLoader = DataLoader(trainSet, batch_size=32, shuffle=False)
+trainDataLoader = DataLoader(trainSet, batch_size=64, shuffle=False)
 
 trainInput, trainOutput = next(iter(trainDataLoader))
 print(f"Input batch shape: {trainInput.size()}")
