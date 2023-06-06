@@ -9,7 +9,7 @@
 -> Filename: SimulationHelpers.py
 -> Project: Electromagnetic Navigation System Calibration
 -> Author: Ardavan Alaei Fard
--> Description: A helper script including all of the functions that are called in input_generator.py
+-> Description: A helper script including all of the functions that are called in OutputSimulation.py
 -> Starting Date: May 29, 2023
 """
 
