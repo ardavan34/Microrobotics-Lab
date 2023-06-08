@@ -6,27 +6,28 @@
  | |__| | | | |  __/ |    | |  | | | (__| | | (_) | | | (_) | |_) | (_) | |_| | (__\__ \ | |___| (_| | |_) |
  |_____/|_|_|_|\___|_|    |_|  |_|_|\___|_|  \___/|_|  \___/|_.__/ \___/ \__|_|\___|___/ |______\__,_|_.__/ 
 
--> Filename: NeuralNetwork.py
+-> Filename: Test.py
 -> Project: Electromagnetic Navigation System Calibration
 -> Author: Ardavan Alaei Fard
--> Description: Class(es) for the neural network model(s) used for training
+-> Description: Script for testing the accuracy of our model
 -> Starting Date: Jun 6, 2023
 """
 
+import numpy as np
 import torch
-from torch import nn
+from NeuralNetwork import SimpleNeuralNetwork
 
-class SimpleNeuralNetwork(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.linearRelu = nn.Sequential(
-            nn.Linear(14, 20),
-            nn.ReLU(),
-            nn.Linear(20, 20),
-            nn.ReLU(),
-            nn.Linear(20, 6)
-        )
+"""
+Main function
+"""
+device = (
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps"
+    if torch.backends.mps.is_available()
+    else "cpu"
+)
 
-    def forward(self, input):
-        logits = self.linearRelu(input)
-        return logits
+testingModel = SimpleNeuralNetwork().to(device)
+testingModel.load_state_dict(torch.load("./Model Training/Models/SimpleModel.pth"))
+

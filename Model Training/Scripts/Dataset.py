@@ -19,6 +19,8 @@ from torch.utils.data import Dataset, DataLoader
 
 class ENSDataset(Dataset):
     def __init__(self, inputMatrix, outputMatrix, inputTransform=None, outputTransform=None):
+        print(type(inputMatrix[0][0]))
+        print(type(outputMatrix[0][0]))
         self.size = inputMatrix.shape[1]
         self.input = torch.tensor(inputMatrix)
         self.output = torch.tensor(outputMatrix)

@@ -6,15 +6,17 @@
  | |__| | | | |  __/ |    | |  | | | (__| | | (_) | | | (_) | |_) | (_) | |_| | (__\__ \ | |___| (_| | |_) |
  |_____/|_|_|_|\___|_|    |_|  |_|_|\___|_|  \___/|_|  \___/|_.__/ \___/ \__|_|\___|___/ |______\__,_|_.__/ 
 
--> Filename: TrainHelpers.py
+-> Filename: ModelHelpers.py
 -> Project: Electromagnetic Navigation System Calibration
 -> Author: Ardavan Alaei Fard
--> Description: A helper script including all of the functions that are called in Train.py
+-> Description: A helper script including all of the functions that are called in Train.py and Test.py
 -> Starting Date: Jun 6, 2023
 """
 
 import json
 import numpy as np
+import torch
+from torch.utils.data import DataLoader
 
 
 def datasetGenerator(fromFile, toFile):
@@ -46,3 +48,21 @@ def datasetGenerator(fromFile, toFile):
             outputDataMatrix[:, (100 * (dataset - fromFile))+set] = np.reshape(outputArray, (outputUnits,))
     
     return inputDataMatrix, outputDataMatrix
+
+
+def train(dataloader, model, lossFunc, optimizer, device):
+    model.double()
+    model.train()
+    for batch, (X, y) in enumerate(dataloader):
+        X, y = X.to(device), y.to(device)
+
+        # Compute prediction error
+        pred = model(X)
+        loss = lossFunc(pred, y)
+
+        # Backpropagation
+        loss.backward()
+        optimizer.step()
+        optimizer.zero_grad()
+
+        print(f"loss: {loss:>7f}")
