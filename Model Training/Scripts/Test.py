@@ -27,7 +27,17 @@ device = (
     if torch.backends.mps.is_available()
     else "cpu"
 )
+error = torch.tensor(np.empty(3))
 
 testingModel = SimpleNeuralNetwork().to(device)
 testingModel.load_state_dict(torch.load("./Model Training/Models/SimpleModel.pth"))
 
+# upload testing dataset
+# predict using the model
+
+# testLoss = torch.nn.MSELoss()
+# for params in range(len(y)):
+#     loss = testLoss(pred[params], y[params])
+#     error[params] = loss
+
+# print(error)
