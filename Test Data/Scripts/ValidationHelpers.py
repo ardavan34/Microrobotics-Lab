@@ -16,7 +16,7 @@
 import json
 
 
-def txtParser(txtFilePath, inputNum):
+def txtParserVal(txtFilePath, inputNum):
     """
     Helper function to parse the text file exported from the simulation
     """
@@ -34,7 +34,7 @@ def txtParser(txtFilePath, inputNum):
     return result
 
 
-def readFile(inputNum, filePath, newResult):
+def readFileVal(inputNum, filePath, newResult):
     """
     Helper function to read (load) the already-existing json file
     """
@@ -49,7 +49,7 @@ def readFile(inputNum, filePath, newResult):
     return output
 
 
-def writeFile(filePath, newOutput):
+def writeFileVal(filePath, newOutput):
     """
     Helper function to update the json file with our new results
     """

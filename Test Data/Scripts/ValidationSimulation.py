@@ -36,6 +36,8 @@ txtFilePath = "./Test Data/Old Test/SimulationResult.txt"
 # Create the JSON file if not already created
 if exists(jsonFilePath) == False:
     newFile = open(jsonFilePath, "x")
+if exists(txtFilePath) == False:
+    newFile = open(txtFilePath, "x")
 
 # Loading the COMSOL model
 client = mph.start()
@@ -62,8 +64,8 @@ for data in range(datasetSize):
     model.export('Data_Point_1')   # write. name and location of text file is set on COMSOL
 
     # Parse the exported data and save them in the json file
-    result = txtParser(txtFilePath, data + 1)
-    output = readFile(data, jsonFilePath, result)
-    writeFile(jsonFilePath, output)
+    result = txtParserVal(txtFilePath, data + 1)
+    output = readFileVal(data, jsonFilePath, result)
+    writeFileVal(jsonFilePath, output)
     
     print("Simulation #" + str(data + 1) + " is successfully completed")
