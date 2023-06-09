@@ -34,10 +34,12 @@ testingModel.load_state_dict(torch.load("./Model Training/Models/SimpleModel.pth
 
 # upload testing dataset
 # predict using the model
+pred = torch.tensor(np.array([1.0, 3.0, 5.0]))
+y = torch.tensor(np.array([3.0, 3.0, 3.0]))
 
-# testLoss = torch.nn.MSELoss()
-# for params in range(len(y)):
-#     loss = testLoss(pred[params], y[params])
-#     error[params] = loss
+testLoss = torch.nn.MSELoss()
+for params in range(len(y)):
+    loss = testLoss(pred[params], y[params])
+    error[params] = -loss if pred[params] < y[params] else loss
 
-# print(error)
+print(error)
