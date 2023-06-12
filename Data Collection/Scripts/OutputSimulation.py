@@ -22,8 +22,8 @@ from SimulationHelpers import *
 Main function
 """
 # Select and load the dataset
-datasetNum = 27   # select the dataset to query
-simNum = 4   # number of simulations to do
+datasetNum = 30   # select the dataset to query
+simNum = 3   # number of simulations to do
 dataset = open("./Data Collection/Input/Input Datasets/Input" + str(datasetNum) + ".json")
 data = json.load(dataset)
 
