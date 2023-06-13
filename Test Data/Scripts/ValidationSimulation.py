@@ -14,7 +14,7 @@
 """
 
 import pandas as pd
-# import mph
+import mph
 from os.path import exists
 from ValidationHelpers import *
 import json
@@ -28,7 +28,7 @@ filteredDf = dataframe[['tableCmdPos_m_1', 'tableCmdPos_m_2', 'tableCmdPos_m_3',
                         'cmdCoilCurrent_A_5', 'cmdCoilCurrent_A_6', 'cmdCoilCurrent_A_7', 'cmdCoilCurrent_A_8']]
 datasetSize = filteredDf.shape[0]
 axis = ['X1', 'Y1', 'Z1']
-"""
+
 # Paths of files used in the script
 jsonFilePath = "./Test Data/Old Test/TheoreticalResult.json"
 txtFilePath = "./Test Data/Old Test/SimulationResult.txt"
@@ -42,21 +42,19 @@ if exists(txtFilePath) == False:
 # Loading the COMSOL model
 client = mph.start()
 model = client.load('system_2.0.mph')   # the mph file must be located in Microrobotics-Lab directory
-"""
-for data in range(5):
+
+for data in range(datasetSize):
     # Clearing the model
-    # model.clear()
-    # model.reset()
+    model.clear()
+    model.reset()
 
     # Next values to calculate
     for direction in range(3):
-        # model.parameter(axis[direction], str(filteredDf.loc[data][direction] * 1000.0) + '[mm]')
-        print(f"{axis[direction]}: {str(filteredDf.loc[data][direction] * 1000.0)} [mm]")
+        model.parameter(axis[direction], str(filteredDf.loc[data][direction] * 1000.0) + '[mm]')
     for current in range(1, 9):
         var = 'I' + str(current)
-        # model.parameter(var, str(filteredDf.loc[data][current + 2]) + '[A]')
-        print(f"{var}: {str(filteredDf.loc[data][current + 2])} [A]")
-    """
+        model.parameter(var, str(filteredDf.loc[data][current + 2]) + '[A]')
+    
     # Start simulation
     model.build()
     model.mesh()
@@ -69,5 +67,5 @@ for data in range(5):
     result = txtParserVal(txtFilePath, data + 1)
     output = readFileVal(data, jsonFilePath, result)
     writeFileVal(jsonFilePath, output)
-    """
+    
     print("Simulation #" + str(data + 1) + " is successfully completed")
