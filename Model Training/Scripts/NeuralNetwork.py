@@ -17,9 +17,16 @@ import torch
 from torch import nn
 
 class SimpleNeuralNetwork(nn.Module):
+    """
+    Class for a simply neural network as a DL model
+    """
     def __init__(self):
+        """
+        Constructor of the model
+        """
         super().__init__()
-        self.linearRelu = nn.Sequential(
+        # Set the model with two hidden layers, each 20 units, with ReLU activatoin function
+        self.linearRelu = nn.Sequential( 
             nn.Linear(in_features=14, out_features=20),
             nn.ReLU(),
             nn.Linear(in_features=20, out_features=20),
@@ -28,6 +35,9 @@ class SimpleNeuralNetwork(nn.Module):
         )
 
     def forward(self, input):
+        """
+        Apply the forward propagation
+        """
         logits = self.linearRelu(input)
         return logits
     

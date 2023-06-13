@@ -22,6 +22,7 @@ import json
 """
 Main function
 """
+# Set the dataframe
 dataframe = pd.read_csv("./Test Data/Old Test/2023-02-03_10-49-44-validation-100points-RobotLog.csv")
 filteredDf = dataframe[['tableCmdPos_m_1', 'tableCmdPos_m_2', 'tableCmdPos_m_3', 
                         'cmdCoilCurrent_A_1', 'cmdCoilCurrent_A_2', 'cmdCoilCurrent_A_3', 'cmdCoilCurrent_A_4', 

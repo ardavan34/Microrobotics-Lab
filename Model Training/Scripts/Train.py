@@ -22,17 +22,21 @@ from torch.utils.data import Dataset, DataLoader
 """
 Main function
 """
+# Generate the input data and number of samples
 fromFile = 1
 toFile = 5
 inputMatrix, outputMatrix = datasetGenerator(fromFile, toFile + 1)
 
+# Load the dataset for our model
 trainSet = ENSDataset(inputMatrix, outputMatrix)
 trainDataLoader = DataLoader(trainSet, batch_size=32, shuffle=False)
 
+# Generate the mini batches
 trainInput, trainOutput = next(iter(trainDataLoader))
 print(f"Input batch shape: {trainInput.size()}")
 print(f"Output batch shape: {trainOutput.size()}")
 
+# Select our device
 device = (
     "cuda"
     if torch.cuda.is_available()
@@ -42,18 +46,23 @@ device = (
 )
 print(f"Using {device} device")
 
+# Initialize our model
 model = SimpleNeuralNetwork().to(device=device)
 print(model)
 
+# List of hyperparameters involved in model training
 hyperparam = {'learning rate': 1e-3}
 
+# Set our loss function and optimizer
 lossFunction = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=hyperparam['learning rate'])
 
+# Train the model with 5 times of iteration
 epochs = 5
 for t in range(epochs):
     print(f"Epoch {t+1}\n-------------------------------")
     train(trainDataLoader, model, lossFunction, optimizer, device)
 
+# Save the trained model
 torch.save(model.state_dict(), "./Model Training/Models/SimpleModel.pth")
 print("Done!")

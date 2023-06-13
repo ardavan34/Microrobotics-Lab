@@ -18,9 +18,13 @@ from torch.utils.data import Dataset, DataLoader
 
 
 class ENSDataset(Dataset):
+    """
+    Class for loading our dataset
+    """
     def __init__(self, inputMatrix, outputMatrix, inputTransform=None, outputTransform=None):
-        print(type(inputMatrix[0][0]))
-        print(type(outputMatrix[0][0]))
+        """
+        Constructor of our class
+        """
         self.size = inputMatrix.shape[1]
         self.input = torch.tensor(inputMatrix)
         self.output = torch.tensor(outputMatrix)
@@ -28,12 +32,19 @@ class ENSDataset(Dataset):
         self.outputTransform = outputTransform
 
     def __len__(self):
+        """
+        Returns the size of our dataset (number of the samples)
+        """
         return self.size
     
     def __getitem__(self, index):
+        """
+        Returns a single sample
+        """
         inputSample = self.input[:, index]
         outputSample = self.output[:, index]
 
+        # Apply the transforms, if there are any
         if self.inputTransform:
             inputSample = self.inputTransform(inputSample)
         if self.outputTransform:
