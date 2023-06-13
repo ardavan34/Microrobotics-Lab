@@ -30,7 +30,7 @@ def txtParser(txtFilePath, inputNum):
             dataList = [float(val) for val in line.split()]   # list of numbers in each line. first 3 are for position, last 3 are the magnetic field densities
             result["input set"] = inputNum
             for i in range(1, 4):
-                result[magneticField[i-1] + str(point)] = dataList[i+2] * 1000.0  # save the magnetic fields
+                result[magneticField[i-1] + str(point)] = dataList[i+2] * 1000.0  # save the magnetic field densities in mT
             point += 1   # move to next point (or next line)
     
     return result
