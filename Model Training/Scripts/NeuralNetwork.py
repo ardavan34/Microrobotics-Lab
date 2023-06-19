@@ -27,11 +27,11 @@ class SimpleNeuralNetwork(nn.Module):
         super().__init__()
         # Set the model with two hidden layers, each 20 units, with ReLU activatoin function
         self.linearRelu = nn.Sequential( 
-            nn.Linear(in_features=14, out_features=20),
+            nn.Linear(in_features=11, out_features=40),
             nn.ReLU(),
-            nn.Linear(in_features=20, out_features=20),
+            nn.Linear(in_features=40, out_features=40),
             nn.ReLU(),
-            nn.Linear(in_features=20, out_features=6)
+            nn.Linear(in_features=40, out_features=3)
         )
 
     def forward(self, input):

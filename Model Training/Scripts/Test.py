@@ -14,11 +14,14 @@
 """
 
 import numpy as np
+import pandas as pd
 import torch
 from NeuralNetwork import SimpleNeuralNetwork
 
 """
 Main function
+"""
+
 """
 device = (
     "cuda"
@@ -43,3 +46,4 @@ for params in range(len(y)):
     error[params] = -loss if pred[params] < y[params] else loss
 
 print(error)
+"""

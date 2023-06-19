@@ -24,12 +24,12 @@ Main function
 """
 # Generate the input data and number of samples
 fromFile = 1
-toFile = 5
+toFile = 10
 inputMatrix, outputMatrix = datasetGenerator(fromFile, toFile + 1)
 
 # Load the dataset for our model
 trainSet = ENSDataset(inputMatrix, outputMatrix)
-trainDataLoader = DataLoader(trainSet, batch_size=32, shuffle=False)
+trainDataLoader = DataLoader(trainSet, batch_size=64, shuffle=False)
 
 # Generate the mini batches
 trainInput, trainOutput = next(iter(trainDataLoader))
@@ -58,7 +58,7 @@ lossFunction = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=hyperparam['learning rate'])
 
 # Train the model with 5 times of iteration
-epochs = 5
+epochs = 100
 for t in range(epochs):
     print(f"Epoch {t+1}\n-------------------------------")
     train(trainDataLoader, model, lossFunction, optimizer, device)

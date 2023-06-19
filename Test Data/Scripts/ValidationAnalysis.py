@@ -42,8 +42,8 @@ dataframe[['simulatedValue_X', 'simulatedValue_Y', 'simulatedValue_Z']] = realVa
 
 # Calculate the difference between measured and simulated values and an error percentage (measured value is assumed to be the real value)
 for dir in dirList:
-    dataframe['diff_' + dir] = abs(dataframe['simulatedValue_' + dir] - dataframe['measuredValue_' + dir])
-    dataframe['error%_' + dir] = 100.0 * (dataframe['diff_' + dir] / dataframe['measuredValue_' + dir])
+    dataframe['diff_' + dir] = dataframe['simulatedValue_' + dir] - dataframe['measuredValue_' + dir]
+    dataframe['error%_' + dir] = 100.0 * (dataframe['diff_' + dir] / abs(dataframe['measuredValue_' + dir]))
     dfByCoordinates[dir] = dataframe[['simulatedValue_' + dir, 'measuredValue_' + dir, 'diff_' + dir, 'error%_' + dir]]
     # Print the result of the analysis
     print(f"----- Analyze {dir} coordinate -----")

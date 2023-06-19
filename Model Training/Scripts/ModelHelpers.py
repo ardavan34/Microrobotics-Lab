@@ -24,8 +24,8 @@ def datasetGenerator(fromFile, toFile):
     Generate the dataset in numpy array format
     Loads the json files
     """
-    inputUnits = 14   # number of input units
-    outputUnits = 6   # number of output units
+    inputUnits = 11   # number of input units
+    outputUnits = 3   # number of output units
     # Generate the empty arrays
     inputDataMatrix = np.empty((inputUnits, (toFile - fromFile) * 100), dtype=float)
     outputDataMatrix = np.empty((outputUnits, (toFile - fromFile) * 100), dtype=float)
@@ -44,14 +44,14 @@ def datasetGenerator(fromFile, toFile):
 
             # Set the input items into seperate column vectors
             inputItems = inputData[set].items()
-            inputArray = np.array(list(inputItems))
+            inputArray = np.array(list(inputItems)[:inputUnits])
             inputArray = np.array(np.delete(inputArray, 0, axis=1), dtype=float)
             # Rewrite the column of the matrix with the new sample
             inputDataMatrix[:, (100 * (dataset - fromFile))+set] = np.reshape(inputArray, (inputUnits,))
 
             # Set the output items into seperate column vectors
             outputItems = outputData[set].items()
-            outputArray = np.array(list(outputItems))
+            outputArray = np.array(list(outputItems)[:outputUnits + 1])
             outputArray = np.array(np.delete(outputArray, 0, axis=1), dtype=float)
             outputArray = np.array(np.delete(outputArray, 0, axis=0), dtype=float)
             # Rewrite the column of the matrix with the new sample
