@@ -57,6 +57,10 @@ def datasetGenerator(fromFile, toFile):
             # Rewrite the column of the matrix with the new sample
             outputDataMatrix[:, (100 * (dataset - fromFile))+set] = np.reshape(outputArray, (outputUnits,))
     
+    print(inputDataMatrix)
+    print(inputDataMatrix.shape)
+    print(outputDataMatrix)
+    print(outputDataMatrix.shape)
     return inputDataMatrix, outputDataMatrix
 
 

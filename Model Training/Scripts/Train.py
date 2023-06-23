@@ -58,7 +58,7 @@ lossFunction = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=hyperparam['learning rate'])
 
 # Train the model with 5 times of iteration
-epochs = 100
+epochs = 5
 for t in range(epochs):
     print(f"Epoch {t+1}\n-------------------------------")
     train(trainDataLoader, model, lossFunction, optimizer, device)
