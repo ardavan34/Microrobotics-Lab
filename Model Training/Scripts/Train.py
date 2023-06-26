@@ -13,6 +13,8 @@
 -> Starting Date: Jun 6, 2023
 """
 
+import matplotlib.pyplot as plt
+import numpy as np
 from ModelHelpers import *
 from Dataset import ENSDataset
 from NeuralNetwork import SimpleNeuralNetwork
@@ -55,14 +57,22 @@ hyperparam = {'learning rate': 1e-3}
 
 # Set our loss function and optimizer
 lossFunction = torch.nn.MSELoss()
+lossList = []
 optimizer = torch.optim.SGD(model.parameters(), lr=hyperparam['learning rate'])
 
 # Train the model with 5 times of iteration
-epochs = 5
+epochs = 50
 for t in range(epochs):
     print(f"Epoch {t+1}\n-------------------------------")
-    train(trainDataLoader, model, lossFunction, optimizer, device)
+    epochLoss = train(trainDataLoader, model, lossFunction, optimizer, device)
+    lossList.extend(epochLoss)
 
 # Save the trained model
 torch.save(model.state_dict(), "./Model Training/Models/SimpleModel.pth")
 print("Done!")
+
+x = np.linspace(1, len(lossList), len(lossList))
+y = np.array(lossList)
+plt.plot(x, y)
+plt.show()
+

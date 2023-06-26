@@ -70,6 +70,8 @@ def train(dataloader, model, lossFunc, optimizer, device):
     """
     model.double()   # change the format to float64
     model.train()
+    lossList = []
+
     for batch, (X, y) in enumerate(dataloader):
         X, y = X.to(device), y.to(device)
 
@@ -82,4 +84,7 @@ def train(dataloader, model, lossFunc, optimizer, device):
         optimizer.step()
         optimizer.zero_grad()
 
+        lossList.append(loss.item())
         print(f"loss: {loss:>7f}")
+
+    return lossList
