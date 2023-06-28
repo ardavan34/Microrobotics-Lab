@@ -15,6 +15,7 @@
 
 import json
 import numpy as np
+import pandas as pd
 import torch
 from torch.utils.data import DataLoader
 
@@ -46,7 +47,7 @@ def datasetGenerator(fromFile, toFile):
             inputItems = inputData[set].items()
             inputArray = np.array(list(inputItems)[:inputUnits])
             inputArray = np.array(np.delete(inputArray, 0, axis=1), dtype=float)
-            inputArray = normalize(inputArray, set)
+            inputArray = normalize(inputArray)
             # Rewrite the column of the matrix with the new sample
             inputDataMatrix[:, (100 * (dataset - fromFile))+set] = np.reshape(inputArray, (inputUnits,))
 
@@ -65,7 +66,27 @@ def datasetGenerator(fromFile, toFile):
     return inputDataMatrix, outputDataMatrix
 
 
-def normalize(dataVector, set):
+def testDataCollector():
+    df = pd.read_csv("Test Data/Old Test/2023-02-03_10-49-44-validation-100points-RobotLog.csv")
+    selectedCols = {'cmdCoilCurrent_A_1': 1.0, 'cmdCoilCurrent_A_2': 1.0, 'cmdCoilCurrent_A_3': 1.0, 
+                'cmdCoilCurrent_A_4': 1.0, 'cmdCoilCurrent_A_5': 1.0, 'cmdCoilCurrent_A_6': 1.0,
+                'cmdCoilCurrent_A_7': 1.0, 'cmdCoilCurrent_A_8': 1.0, 'tableCmdPos_m_1': 1000.0,
+                'tableCmdPos_m_2': 1000.0, 'tableCmdPos_m_3': 1000.0}
+    inputDf = df[list(selectedCols.keys())]
+    inputDf = inputDf.multiply(selectedCols)
+    outputDf = df[['msdFieldvalue_mT_1', 'msdFieldvalue_mT_2', 'msdFieldvalue_mT_3']]
+
+    testInArray = np.empty((100, 11), dtype=float)
+    testOutArray = np.empty((100, 3), dtype=float)
+    for row in range(len(df.index)):
+        normalizedInput = normalize(inputDf.loc[pd.Index([row])].to_numpy().T)
+        testInArray[row] = normalizedInput.T
+        testOutArray[row] = outputDf.loc[pd.Index([row])].to_numpy()
+    
+    return torch.tensor(testInArray), torch.tensor(testOutArray)
+
+
+def normalize(dataVector):
         
     mean = sum(dataVector) / len(dataVector)
     differences = (dataVector - mean) ** 2

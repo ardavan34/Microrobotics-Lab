@@ -15,6 +15,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from ModelHelpers import *
 from Dataset import ENSDataset
 from NeuralNetwork import SimpleNeuralNetwork
@@ -24,9 +25,22 @@ from torch.utils.data import Dataset, DataLoader
 """
 Main function
 """
+# Generate the train-dev dataset
+fileNum = 50
+trainDevInArray, trainDevOutArray = datasetGenerator(fileNum, fileNum + 1)
+trainDevInput = torch.tensor(trainDevInArray.T)
+trainDevActualOutput = torch.tensor(trainDevOutArray.T)
+print(trainDevInput)
+print(trainDevActualOutput)
+
+# Generate the test dataset
+testInput, testActualOutput = testDataCollector()
+print(testInput)
+print(testActualOutput)
+
 # Generate the input data and number of samples
 fromFile = 1
-toFile = 50
+toFile = 49
 inputMatrix, outputMatrix = datasetGenerator(fromFile, toFile + 1)
 
 # Load the dataset for our model
@@ -76,4 +90,3 @@ y = np.array(lossList)
 print(y)
 plt.plot(x, y)
 plt.show()
-
