@@ -46,6 +46,7 @@ def datasetGenerator(fromFile, toFile):
             inputItems = inputData[set].items()
             inputArray = np.array(list(inputItems)[:inputUnits])
             inputArray = np.array(np.delete(inputArray, 0, axis=1), dtype=float)
+            inputArray = normalize(inputArray, set)
             # Rewrite the column of the matrix with the new sample
             inputDataMatrix[:, (100 * (dataset - fromFile))+set] = np.reshape(inputArray, (inputUnits,))
 
@@ -64,13 +65,25 @@ def datasetGenerator(fromFile, toFile):
     return inputDataMatrix, outputDataMatrix
 
 
+def normalize(dataVector, set):
+        
+    mean = sum(dataVector) / len(dataVector)
+    differences = (dataVector - mean) ** 2
+    sumOfDiff = sum(differences)
+    stdDev = (sumOfDiff / len(dataVector)) ** 0.5
+    zscores = (dataVector - mean) / stdDev
+
+    return zscores
+
+
 def train(dataloader, model, lossFunc, optimizer, device):
     """
     Train the DL model
     """
     model.double()   # change the format to float64
     model.train()
-    lossList = []
+    lossTot = 0
+    batchCount = 0
 
     for batch, (X, y) in enumerate(dataloader):
         X, y = X.to(device), y.to(device)
@@ -84,7 +97,8 @@ def train(dataloader, model, lossFunc, optimizer, device):
         optimizer.step()
         optimizer.zero_grad()
 
-        lossList.append(loss.item())
+        lossTot += loss.item()
+        batchCount += 1
         print(f"loss: {loss:>7f}")
 
-    return lossList
+    return (lossTot / batchCount)

@@ -26,7 +26,7 @@ Main function
 """
 # Generate the input data and number of samples
 fromFile = 1
-toFile = 10
+toFile = 50
 inputMatrix, outputMatrix = datasetGenerator(fromFile, toFile + 1)
 
 # Load the dataset for our model
@@ -61,11 +61,11 @@ lossList = []
 optimizer = torch.optim.SGD(model.parameters(), lr=hyperparam['learning rate'])
 
 # Train the model with 5 times of iteration
-epochs = 50
+epochs = 100
 for t in range(epochs):
     print(f"Epoch {t+1}\n-------------------------------")
     epochLoss = train(trainDataLoader, model, lossFunction, optimizer, device)
-    lossList.extend(epochLoss)
+    lossList.append(epochLoss)
 
 # Save the trained model
 torch.save(model.state_dict(), "./Model Training/Models/SimpleModel.pth")
@@ -73,6 +73,7 @@ print("Done!")
 
 x = np.linspace(1, len(lossList), len(lossList))
 y = np.array(lossList)
+print(y)
 plt.plot(x, y)
 plt.show()
 

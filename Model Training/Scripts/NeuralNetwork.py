@@ -31,7 +31,11 @@ class SimpleNeuralNetwork(nn.Module):
             nn.ReLU(),
             nn.Linear(in_features=40, out_features=40),
             nn.ReLU(),
-            nn.Linear(in_features=40, out_features=3)
+            nn.Linear(in_features=40, out_features=40),
+            nn.ReLU(),
+            nn.Linear(in_features=40, out_features=20),
+            nn.ReLU(),
+            nn.Linear(in_features=20, out_features=3),
         )
 
     def forward(self, input):
