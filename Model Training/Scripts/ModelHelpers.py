@@ -59,10 +59,6 @@ def datasetGenerator(fromFile, toFile):
             # Rewrite the column of the matrix with the new sample
             outputDataMatrix[:, (100 * (dataset - fromFile))+set] = np.reshape(outputArray, (outputUnits,))
     
-    print(inputDataMatrix)
-    print(inputDataMatrix.shape)
-    print(outputDataMatrix)
-    print(outputDataMatrix.shape)
     return inputDataMatrix, outputDataMatrix
 
 
@@ -123,3 +119,20 @@ def train(dataloader, model, lossFunc, optimizer, device):
         print(f"loss: {loss:>7f}")
 
     return (lossTot / batchCount)
+
+
+def test(testInput, testActualOutput, model, lossFunc, device):
+    """
+    Test the DL model
+    """
+    model.double()   # change the format to float64
+    model.eval()
+    lossTot = 0
+
+    for (setInput, setActualOutput) in zip(testInput, testActualOutput):
+        X, y = setInput.to(device), setActualOutput.to(device)
+        pred = model(X)
+        loss = lossFunc(pred, y)
+        lossTot += loss.item()
+    
+    return lossTot / len(testInput)

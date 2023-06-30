@@ -31,12 +31,9 @@ trainDevInArray, trainDevOutArray = datasetGenerator(fileNum, fileNum + 1)
 trainDevInput = torch.tensor(trainDevInArray.T)
 trainDevActualOutput = torch.tensor(trainDevOutArray.T)
 print(trainDevInput)
-print(trainDevActualOutput)
-
+print(trainDevInput.shape)
 # Generate the test dataset
 testInput, testActualOutput = testDataCollector()
-print(testInput)
-print(testActualOutput)
 
 # Generate the input data and number of samples
 fromFile = 1
@@ -71,22 +68,38 @@ hyperparam = {'learning rate': 1e-3}
 
 # Set our loss function and optimizer
 lossFunction = torch.nn.MSELoss()
-lossList = []
+trainLossList = []
+trainDevLossList = []
+testLossList = []
 optimizer = torch.optim.SGD(model.parameters(), lr=hyperparam['learning rate'])
 
 # Train the model with 5 times of iteration
-epochs = 100
+epochs = 1000
 for t in range(epochs):
     print(f"Epoch {t+1}\n-------------------------------")
     epochLoss = train(trainDataLoader, model, lossFunction, optimizer, device)
-    lossList.append(epochLoss)
+    trainLossList.append(epochLoss)
+    trainDevEpochLoss = test(trainDevInput, trainDevActualOutput, model, lossFunction, device)
+    trainDevLossList.append(trainDevEpochLoss)
+    testEpochLoss = test(testInput, testActualOutput, model, lossFunction, device)
+    testLossList.append(testEpochLoss)
 
 # Save the trained model
 torch.save(model.state_dict(), "./Model Training/Models/SimpleModel.pth")
 print("Done!")
 
-x = np.linspace(1, len(lossList), len(lossList))
-y = np.array(lossList)
-print(y)
-plt.plot(x, y)
+x = np.linspace(1, len(trainLossList), len(trainLossList))
+trainLoss = np.array(trainLossList)
+trainDevLoss = np.array(trainDevLossList)
+testLoss = np.array(testLossList)
+plt.rcParams.update({'font.size': 22})
+plt.figure(figsize=(25, 15))
+plt.plot(x, trainLoss, label='train')
+plt.plot(x, trainDevLoss, label='train-dev')
+plt.plot(x, testLoss, label='test')
+plt.legend(loc="upper left")
+plt.xlabel('Epoch')
+plt.ylabel('Mean-Squared-Error [mT^2]')
+plt.savefig("figure.png")
 plt.show()
+
