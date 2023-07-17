@@ -73,7 +73,7 @@ class SensorArray:
                 
                 dataframe = pd.DataFrame(self.csvData)
                 print(dataframe)
-                dataframe.to_csv("sensor_data_x.csv", index=False)
+                dataframe.to_csv("./Data Collection/Sensor Array/triple_sensor_data.csv", index=False)
 
                 break
 
