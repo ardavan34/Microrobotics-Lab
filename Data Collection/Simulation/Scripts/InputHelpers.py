@@ -129,7 +129,7 @@ def posDataframe(inputData, fileNumber):
     
     # Modify the dataframe into the rounded version for overall analysis
     else:
-        df= (df // 20) * 20 + 10
+        df = (df // 20) * 20 + 10
         df = df.groupby(df.columns.tolist(), as_index=False).size()
         df = df.sort_values(by=['size'])   # dataframe for the defined subsections
     
