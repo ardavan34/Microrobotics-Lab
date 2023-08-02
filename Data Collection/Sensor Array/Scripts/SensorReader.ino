@@ -45,8 +45,11 @@ void setup() {
 
       if (error == 0) {
         byte sensorStatus = mlx[mux][port].begin(0, 0);
-        mlx[mux][port].setGainSel(7);
-        mlx[mux][port].setResolution(0, 0, 0);
+        // mlx[mux][port].setHallConf(0);
+        mlx[mux][port].setOverSampling(0);
+        mlx[mux][port].setDigitalFiltering(0);
+        mlx[mux][port].setGainSel(3);
+        mlx[mux][port].setResolution(3, 3, 3);
       }
       myMux[mux].disablePort(port);
     }
@@ -56,7 +59,7 @@ void setup() {
 }
 
 void loop() {
-  delay(100);
+  delay(200);
 
   for (int number = 0; number < 2; number++) {
     Wire.beginTransmission(muxAddress[number]);

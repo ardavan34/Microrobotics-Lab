@@ -22,7 +22,7 @@ class SensorArray:
     def __init__(self, 
                  comPort: str = '/dev/ttyACM0',
                  baudRate: int = 57600,
-                 timeout: float = 10.0,
+                 timeout: float = 1.0,
                  conversionFactor: float = 1e-3):
         """
         Construct the class
@@ -40,12 +40,13 @@ class SensorArray:
         read the data line from Serial
         """
         sensorValue = self.ser.readline().decode().split(',')   # Make a list from the reading data
-        if (len(sensorValue) == 48):   # Check if the reading is valid
+        if len(sensorValue) == 48:   # Check if the reading is valid
             sensorValue[-1] = sensorValue[-1][:-2]
             self.currentMeasurement = list(map(float, sensorValue))
-            return True
-        else:
-            return False
+            if self.currentMeasurement[0] < 1000:
+                return True
+        
+        return False
     
     def calibrate(self, calibrationSize):
         """
@@ -83,7 +84,7 @@ class SensorArray:
                 # Create dataframe and save the data into csv file
                 dataframe = pd.DataFrame(self.csvData)
                 print(dataframe)
-                dataframe.to_csv("./Data Collection/Sensor Array/Validation Tests/coil_table_2_7.csv", index=False)
+                dataframe.to_csv("./Data Collection/Sensor Array/Validation Tests/magnitude_test.csv", index=False)
 
                 break
 
