@@ -25,6 +25,26 @@ from torch.utils.data import Dataset, DataLoader
 """
 Main function
 """
+# List of hyperparameters involved in model training
+hyperparam = {'neuralNet': SimpleNeuralNetwork(), 'modelName': "ArdavanNet_4", 'batchSize': 256,
+              'learning rate': 1e-3, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 50}
+
+# Select our device
+device = (
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps"
+    if torch.backends.mps.is_available()
+    else "cpu"
+)
+print(f"Using {device} device")
+
+# Initialize our model
+model = hyperparam['neuralNet'].to(device=device)
+
+# Set the and optimizer
+hyperparam['optimizer'] = torch.optim.Adam(model.parameters(), lr=hyperparam['learning rate'], weight_decay=1e-3)
+
 # Generate the train-dev dataset
 fileNum = 50
 trainDevInArray, trainDevOutArray = datasetGenerator(fileNum, fileNum + 1)
@@ -42,64 +62,29 @@ inputMatrix, outputMatrix = datasetGenerator(fromFile, toFile + 1)
 
 # Load the dataset for our model
 trainSet = ENSDataset(inputMatrix, outputMatrix)
-trainDataLoader = DataLoader(trainSet, batch_size=64, shuffle=False)
+trainDataLoader = DataLoader(trainSet, batch_size=hyperparam['batchSize'], shuffle=False)
 
 # Generate the mini batches
 trainInput, trainOutput = next(iter(trainDataLoader))
 print(f"Input batch shape: {trainInput.size()}")
 print(f"Output batch shape: {trainOutput.size()}")
 
-# Select our device
-device = (
-    "cuda"
-    if torch.cuda.is_available()
-    else "mps"
-    if torch.backends.mps.is_available()
-    else "cpu"
-)
-print(f"Using {device} device")
-
-# Initialize our model
-model = SimpleNeuralNetwork().to(device=device)
-print(model)
-
-# List of hyperparameters involved in model training
-hyperparam = {'learning rate': 1e-3}
-
-# Set our loss function and optimizer
-lossFunction = torch.nn.MSELoss()
+# Train the model with 5 times of iteration
 trainLossList = []
 trainDevLossList = []
 testLossList = []
-optimizer = torch.optim.SGD(model.parameters(), lr=hyperparam['learning rate'])
-
-# Train the model with 5 times of iteration
-epochs = 1000
-for t in range(epochs):
+for t in range(hyperparam['epochsNum']):
     print(f"Epoch {t+1}\n-------------------------------")
-    epochLoss = train(trainDataLoader, model, lossFunction, optimizer, device)
+    epochLoss = train(trainDataLoader, model, hyperparam['lossFunction'], hyperparam['optimizer'], device)
+    print(f'epoch loss: {epochLoss}')
     trainLossList.append(epochLoss)
-    trainDevEpochLoss = test(trainDevInput, trainDevActualOutput, model, lossFunction, device)
+    trainDevEpochLoss = test(trainDevInput, trainDevActualOutput, model, hyperparam['lossFunction'], device)
     trainDevLossList.append(trainDevEpochLoss)
-    testEpochLoss = test(testInput, testActualOutput, model, lossFunction, device)
+    testEpochLoss = test(testInput, testActualOutput, model, hyperparam['lossFunction'], device)
     testLossList.append(testEpochLoss)
 
-# Save the trained model
-torch.save(model.state_dict(), "./Model Training/Models/SimpleModel.pth")
+# Save the trained model and the visual graph
+torch.save(model.state_dict(), "./Model Training/Models/" + hyperparam['modelName'] + ".pth")
+graph(trainLossList, trainDevLossList, testLossList, hyperparam['modelName'])
 print("Done!")
-
-x = np.linspace(1, len(trainLossList), len(trainLossList))
-trainLoss = np.array(trainLossList)
-trainDevLoss = np.array(trainDevLossList)
-testLoss = np.array(testLossList)
-plt.rcParams.update({'font.size': 22})
-plt.figure(figsize=(25, 15))
-plt.plot(x, trainLoss, label='train')
-plt.plot(x, trainDevLoss, label='train-dev')
-plt.plot(x, testLoss, label='test')
-plt.legend(loc="upper left")
-plt.xlabel('Epoch')
-plt.ylabel('Mean-Squared-Error [mT^2]')
-plt.savefig("figure.png")
-plt.show()
-
+print(model)

@@ -84,7 +84,7 @@ class SensorArray:
                 # Create dataframe and save the data into csv file
                 dataframe = pd.DataFrame(self.csvData)
                 print(dataframe)
-                dataframe.to_csv("./Data Collection/Sensor Array/Validation Tests/magnitude_test.csv", index=False)
+                dataframe.to_csv("./Data Collection/Sensor Array/Validation Tests/coil5_magnitude_validation_test2.csv", index=False)
 
                 break
 

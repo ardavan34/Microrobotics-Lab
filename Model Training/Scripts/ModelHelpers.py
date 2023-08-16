@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 import torch
 from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt
 
 
 def datasetGenerator(fromFile, toFile):
@@ -31,8 +32,8 @@ def datasetGenerator(fromFile, toFile):
     inputDataMatrix = np.empty((inputUnits, (toFile - fromFile) * 100), dtype=float)
     outputDataMatrix = np.empty((outputUnits, (toFile - fromFile) * 100), dtype=float)
 
-    inputPath = "./Data Collection/Input/Input Datasets/Input"
-    outputPath = "./Data Collection/Output/Output"
+    inputPath = "./Data Collection/Simulation/Input/Input Datasets/Input"
+    outputPath = "./Data Collection/Simulation/Output/Output"
     for dataset in range(fromFile, toFile):
 
         # Load the json files
@@ -104,7 +105,7 @@ def train(dataloader, model, lossFunc, optimizer, device):
 
     for batch, (X, y) in enumerate(dataloader):
         X, y = X.to(device), y.to(device)
-
+        
         # Compute prediction error
         pred = model(X)
         loss = lossFunc(pred, y)
@@ -116,7 +117,7 @@ def train(dataloader, model, lossFunc, optimizer, device):
 
         lossTot += loss.item()
         batchCount += 1
-        print(f"loss: {loss:>7f}")
+        # print(f"loss: {loss:>7f}")
 
     return (lossTot / batchCount)
 
@@ -136,3 +137,20 @@ def test(testInput, testActualOutput, model, lossFunc, device):
         lossTot += loss.item()
     
     return lossTot / len(testInput)
+
+def graph(trainLossList, trainDevLossList, testLossList, modelName):
+
+    x = np.linspace(1, len(trainLossList), len(trainLossList))
+    trainLoss = np.array(trainLossList)
+    trainDevLoss = np.array(trainDevLossList)
+    testLoss = np.array(testLossList)
+    plt.rcParams.update({'font.size': 22})
+    plt.figure(figsize=(25, 15))
+    plt.plot(x, trainLoss, label='train')
+    plt.plot(x, trainDevLoss, label='train-dev')
+    plt.plot(x, testLoss, label='test')
+    plt.legend(loc="upper left")
+    plt.xlabel('Epoch')
+    plt.ylabel('Mean-Squared-Error [mT^2]')
+    plt.savefig("./Model Training/Models/" + modelName + ".png")
+    plt.show()
