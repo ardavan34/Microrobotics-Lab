@@ -131,6 +131,8 @@ def test(testInput, testActualOutput, model, lossFunc, device):
     lossTot = 0
 
     for (setInput, setActualOutput) in zip(testInput, testActualOutput):
+        torch.tensor([list(setInput)])
+        torch.reshape(setActualOutput, (1, len(setActualOutput)))
         X, y = setInput.to(device), setActualOutput.to(device)
         pred = model(X)
         loss = lossFunc(pred, y)

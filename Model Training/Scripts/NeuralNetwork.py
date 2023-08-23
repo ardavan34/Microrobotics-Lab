@@ -17,7 +17,7 @@ import torch
 from torch import nn
 from ModelHelpers import normalize
 
-class SimpleNeuralNetwork(nn.Module):
+class ArdavanNet_1(nn.Module):
     """
     Class for a simply neural network as a DL model
     """
@@ -27,103 +27,111 @@ class SimpleNeuralNetwork(nn.Module):
         """
         super().__init__()
         # Set the model with two hidden layers, each 20 units, with ReLU activatoin function
-        """
-        self.linearRelu = nn.Sequential( 
-            nn.Linear(in_features=11, out_features=40),
+        self.mlpLayer = nn.Sequential(
+            nn.Linear(in_features=11, out_features=256, bias=True),
             nn.ReLU(),
-            nn.Linear(in_features=40, out_features=40),
-            nn.Dropout(p=0.2),
+            nn.Dropout(p=0.5, inplace=False),
+            nn.Linear(in_features=256, out_features=256, bias=True),
             nn.ReLU(),
-            nn.Linear(in_features=40, out_features=40),
+            nn.Linear(in_features=256, out_features=256, bias=True),
             nn.ReLU(),
-            nn.Linear(in_features=40, out_features=40),
-            nn.Dropout(p=0.2),
+            nn.Dropout(p=0.5, inplace=False),
+            nn.Linear(in_features=256, out_features=32, bias=True),
             nn.ReLU(),
-            nn.Linear(in_features=40, out_features=20),
-            nn.ReLU(),
-            nn.Linear(in_features=20, out_features=3),
-        )
-        """
-        self.threeIn = nn.Sequential(
-            nn.Linear(in_features=3, out_features=128),
-            nn.ReLU(),
-            nn.Linear(in_features=128, out_features=32),
-            nn.Dropout(p=0.2),
-            nn.ReLU(),
-            nn.Linear(in_features=32, out_features=8),
-            nn.ReLU(),
-            nn.Linear(in_features=8, out_features=3)
-        )
-        self.fiveIn = nn.Sequential(
-            nn.Linear(in_features=5, out_features=128),
-            nn.ReLU(),
-            nn.Linear(in_features=128, out_features=32),
-            nn.Dropout(p=0.2),
-            nn.ReLU(),
-            nn.Linear(in_features=32, out_features=8),
-            nn.ReLU(),
-            nn.Linear(in_features=8, out_features=3)
-        )
-        self.eightIn = nn.Sequential(
-            nn.Linear(in_features=8, out_features=128),
-            nn.ReLU(),
-            nn.Linear(in_features=128, out_features=32),
-            nn.Dropout(p=0.2),
-            nn.ReLU(),
-            nn.Linear(in_features=32, out_features=8),
-            nn.ReLU(),
-            nn.Linear(in_features=8, out_features=3)
-        )
-        self.allIn = nn.Sequential(
-            nn.Linear(in_features=11, out_features=128),
-            nn.ReLU(),
-            nn.Linear(in_features=128, out_features=32),
-            nn.Dropout(p=0.2),
-            nn.ReLU(),
-            nn.Linear(in_features=32, out_features=8),
-            nn.ReLU(),
-            nn.Linear(in_features=8, out_features=3)
-        )
-        self.finalLayer = nn.Sequential(
-            nn.Linear(in_features=12, out_features=128),
-            nn.ReLU(),
-            nn.Linear(in_features=128, out_features=32),
-            nn.Dropout(p=0.2),
-            nn.ReLU(),
-            nn.Linear(in_features=32, out_features=8),
-            nn.ReLU(),
-            nn.Linear(in_features=8, out_features=3)
+            nn.Linear(in_features=32, out_features=3, bias=True)
         )
 
     def forward(self, input):
         """
         Apply the forward propagation
         """
-        """
-        logits = self.linearRelu(input)
+        logits = self.mlpLayer(input)
+
         return logits
+    
+class ArdavanNet_2(nn.Module):
+    """
+    Class for a simply neural network as a DL model
+    """
+    def __init__(self):
         """
-        if input.ndim is 2:
-            subset1 = input[:,:3]
-            subset2 = input[:,:5]
-            subset3 = input[:,:8]
-        else:
-            subset1 = input[:3]
-            subset2 = input[:5]
-            subset3 = input[:8]
+        Constructor of the model
+        """
+        super().__init__()
+        # Set the model with two hidden layers, each 20 units, with ReLU activatoin function
+        self.recurrentLayer = nn.Sequential(
+            nn.Linear(in_features=11, out_features=128, bias=True),
+            nn.ReLU(),
+            nn.Dropout(p=0.4, inplace=False),
+            nn.Linear(in_features=128, out_features=128, bias=True),
+            nn.ReLU(),
+            nn.Linear(in_features=128, out_features=11, bias=True)
+        )
+        self.finalLayer = nn.Sequential(
+            nn.Linear(in_features=11, out_features=128, bias=True),
+            nn.ReLU(),
+            nn.Linear(in_features=128, out_features=32, bias=True),
+            nn.ReLU(),
+            nn.Dropout(p=0.3, inplace=False),
+            nn.Linear(in_features=32, out_features=8, bias=True),
+            nn.ReLU(),
+            nn.Linear(in_features=8, out_features=3, bias=True)
+        )
 
-        x1 = self.threeIn(subset1)
-        x2 = self.fiveIn(subset2)
-        x3 = self.eightIn(subset3)
-        x4 = self.allIn(input)
+    def block(self, input):
+        x1 = self.recurrentLayer(input)
+        x2 = self.recurrentLayer(x1)
 
-        if input.ndim is 2:
-            result = torch.cat((x1, x2, x3, x4), dim=1)
-        else:
-            result = torch.cat((x1, x2, x3, x4))
+        return x2 + input
 
-        result = torch.from_numpy(normalize(result.detach().numpy()))
-        logits = self.finalLayer(result)
+    def forward(self, input):
+        """
+        Apply the forward propagation
+        """
+        logits = input
+        for i in range(3):
+            logits = ArdavanNet_2.block(self, logits)
 
+        logits = self.finalLayer(logits)
+
+        return logits
+    
+class ArdavanNet_3(nn.Module):
+    """
+    Class for a simply neural network as a DL model
+    """
+    def __init__(self):
+        """
+        Constructor of the model
+        """
+        super().__init__()
+        # Set the model with two hidden layers, each 20 units, with ReLU activatoin function
+        self.layerBlock = nn.Sequential(
+            nn.Linear(in_features=11, out_features=128, bias=True),
+            nn.ReLU(),
+            nn.Linear(in_features=128, out_features=64, bias=True),
+            nn.Dropout(p=0.2, inplace=False),
+            nn.ReLU(),
+            nn.Linear(in_features=64, out_features=32, bias=True),
+            nn.ReLU(),
+            nn.Linear(in_features=32, out_features=11, bias=True),
+            nn.Dropout(p=0.2, inplace=False),
+            nn.ReLU()
+        )
+        self.endingBlock = nn.Sequential(
+            nn.Linear(in_features=11, out_features=32, bias=True),
+            nn.ReLU(),
+            nn.Linear(in_features=32, out_features=16, bias=True),
+            nn.Dropout(p=0.2, inplace=False),
+            nn.ReLU(),
+            nn.Linear(in_features=16, out_features=3, bias=True)
+        )
+
+    def forward(self, input):
+        x1 = self.layerBlock(input)
+        x2 = self.layerBlock(x1) + x1
+        x3 = self.layerBlock(x2) + x1 + x2
+        x4 = self.layerBlock(x3) + x1 + x2 + x3
+        logits = self.endingBlock(x4)
         return logits
     

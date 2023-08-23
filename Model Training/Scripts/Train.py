@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd
 from ModelHelpers import *
 from Dataset import ENSDataset
-from NeuralNetwork import SimpleNeuralNetwork
+from NeuralNetwork import *
 import torch
 from torch.utils.data import Dataset, DataLoader
 
@@ -26,8 +26,8 @@ from torch.utils.data import Dataset, DataLoader
 Main function
 """
 # List of hyperparameters involved in model training
-hyperparam = {'neuralNet': SimpleNeuralNetwork(), 'modelName': "ArdavanNet_4", 'batchSize': 256,
-              'learning rate': 1e-3, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 50}
+hyperparam = {'neuralNet': ArdavanNet_3(), 'modelName': "ArdavanNet_3", 'batchSize': 256,
+                  'learning rate': 1e-3, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 800}
 
 # Select our device
 device = (
@@ -62,7 +62,7 @@ inputMatrix, outputMatrix = datasetGenerator(fromFile, toFile + 1)
 
 # Load the dataset for our model
 trainSet = ENSDataset(inputMatrix, outputMatrix)
-trainDataLoader = DataLoader(trainSet, batch_size=hyperparam['batchSize'], shuffle=False)
+trainDataLoader = DataLoader(trainSet, batch_size=hyperparam['batchSize'], shuffle=True)
 
 # Generate the mini batches
 trainInput, trainOutput = next(iter(trainDataLoader))

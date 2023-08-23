@@ -1,29 +1,33 @@
 Parameters:
-	hyperparam = {'neuralNet': SimpleNeuralNetwork(), 'modelName': "ArdavanNet_1", 'batchSize': 256,
-		      'learning rate': 1e-3, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 800}
-	hyperparam['optimizer'] = torch.optim.Adam(model.parameters(), lr=hyperparam['learning rate'], weight_decay=1e-3)
+    hyperparam = {'neuralNet': ArdavanNet_1(), 'modelName': "ArdavanNet_1", 'batchSize': 256,
+                  'learning rate': 1e-2, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 1000}
+    hyperparam['optimizer'] = torch.optim.Adam(model.parameters(), lr=hyperparam['learning rate'])
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer=hyperparam['optimizer'], step_size=1, gamma=0.999, last_epoch=-1)
 
 
 Network Architecture:
-	SimpleNeuralNetwork(
-	  (	linearRelu): Sequential(
-			(0): Linear(in_features=11, out_features=40, bias=True)
-			(1): ReLU()
-			(2): Linear(in_features=40, out_features=40, bias=True)
-			(3): Dropout(p=0.2, inplace=False)
-			(4): ReLU()
-			(5): Linear(in_features=40, out_features=40, bias=True)
-			(6): ReLU()
-			(7): Linear(in_features=40, out_features=40, bias=True)
-			(8): Dropout(p=0.2, inplace=False)
-			(9): ReLU()
-			(10): Linear(in_features=40, out_features=20, bias=True)
-			(11): ReLU()
-			(12): Linear(in_features=20, out_features=3, bias=True)
-	  	)
-	)
+    ArdavanNet_1(
+        (mlpLayer): Sequential(
+            (0): Linear(in_features=11, out_features=256, bias=True)
+            (1): ReLU()
+            (2): Dropout(p=0.5, inplace=False)
+            (3): Linear(in_features=256, out_features=256, bias=True)
+            (4): ReLU()
+            (5): Linear(in_features=256, out_features=256, bias=True)
+            (6): ReLU()
+            (7): Dropout(p=0.5, inplace=False)
+            (8): Linear(in_features=256, out_features=32, bias=True)
+            (9): ReLU()
+            (10): Linear(in_features=32, out_features=3, bias=True)
+        )
+    )
 
 
 Forward:
-	logits = self.linearRelu(input)
-    return logits
+    def forward(self, input):
+        """
+        Apply the forward propagation
+        """
+        logits = self.mlpLayer(input)
+
+        return logits
