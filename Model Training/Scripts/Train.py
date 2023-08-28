@@ -27,7 +27,7 @@ Main function
 """
 # List of hyperparameters involved in model training
 hyperparam = {'neuralNet': ArdavanNet_4(batchSize=512), 'modelName': "ArdavanNet_4", 'batchSize': 256,
-              'learning rate': 1e-2, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 200}
+              'learning rate': 1e-3, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 1500}
 
 # Select our device
 device = (

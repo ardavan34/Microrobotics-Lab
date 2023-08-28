@@ -175,8 +175,8 @@ class ArdavanNet_4(nn.Module):
         input3d = input.reshape(self.batchSize, -1, self.inputSize)
         # print(input[0])
         # print(input3d[0].reshape(1, 11))
-        self.h = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize)))
-        self.c = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize)))
+        self.h = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize))).to(device='cuda')
+        self.c = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize))).to(device='cuda')
         output, (h_n, c_n) = self.lstmLayer(input3d, (self.h, self.c))
         logits = self.fc(output[:,-1,:])
 
