@@ -26,8 +26,8 @@ from torch.utils.data import Dataset, DataLoader
 Main function
 """
 # List of hyperparameters involved in model training
-hyperparam = {'neuralNet': ArdavanNet_3(), 'modelName': "ArdavanNet_3", 'batchSize': 256,
-                  'learning rate': 1e-3, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 800}
+hyperparam = {'neuralNet': ArdavanNet_4(batchSize=512), 'modelName': "ArdavanNet_4", 'batchSize': 256,
+              'learning rate': 1e-2, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 200}
 
 # Select our device
 device = (
@@ -41,6 +41,7 @@ print(f"Using {device} device")
 
 # Initialize our model
 model = hyperparam['neuralNet'].to(device=device)
+model.batchSize = hyperparam['batchSize']
 
 # Set the and optimizer
 hyperparam['optimizer'] = torch.optim.Adam(model.parameters(), lr=hyperparam['learning rate'], weight_decay=1e-3)
@@ -50,10 +51,14 @@ fileNum = 50
 trainDevInArray, trainDevOutArray = datasetGenerator(fileNum, fileNum + 1)
 trainDevInput = torch.tensor(trainDevInArray.T)
 trainDevActualOutput = torch.tensor(trainDevOutArray.T)
+trainDevInput = trainDevInput.reshape(trainDevInput.shape[0], 1, trainDevInput.shape[1])
+trainDevActualOutput = trainDevActualOutput.reshape(trainDevActualOutput.shape[0], 1, trainDevActualOutput.shape[1])
 print(trainDevInput)
 print(trainDevInput.shape)
 # Generate the test dataset
 testInput, testActualOutput = testDataCollector()
+print(testInput)
+print(testInput.shape)
 
 # Generate the input data and number of samples
 fromFile = 1

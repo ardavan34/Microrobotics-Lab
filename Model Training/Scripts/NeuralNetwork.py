@@ -16,6 +16,8 @@
 import torch
 from torch import nn
 from ModelHelpers import normalize
+import numpy as np
+
 
 class ArdavanNet_1(nn.Module):
     """
@@ -26,7 +28,7 @@ class ArdavanNet_1(nn.Module):
         Constructor of the model
         """
         super().__init__()
-        # Set the model with two hidden layers, each 20 units, with ReLU activatoin function
+        # Set the model
         self.mlpLayer = nn.Sequential(
             nn.Linear(in_features=11, out_features=256, bias=True),
             nn.ReLU(),
@@ -49,6 +51,7 @@ class ArdavanNet_1(nn.Module):
 
         return logits
     
+
 class ArdavanNet_2(nn.Module):
     """
     Class for a simply neural network as a DL model
@@ -58,7 +61,7 @@ class ArdavanNet_2(nn.Module):
         Constructor of the model
         """
         super().__init__()
-        # Set the model with two hidden layers, each 20 units, with ReLU activatoin function
+        # Set the model
         self.recurrentLayer = nn.Sequential(
             nn.Linear(in_features=11, out_features=128, bias=True),
             nn.ReLU(),
@@ -96,6 +99,7 @@ class ArdavanNet_2(nn.Module):
 
         return logits
     
+
 class ArdavanNet_3(nn.Module):
     """
     Class for a simply neural network as a DL model
@@ -105,7 +109,7 @@ class ArdavanNet_3(nn.Module):
         Constructor of the model
         """
         super().__init__()
-        # Set the model with two hidden layers, each 20 units, with ReLU activatoin function
+        # Set the model
         self.layerBlock = nn.Sequential(
             nn.Linear(in_features=11, out_features=128, bias=True),
             nn.ReLU(),
@@ -135,3 +139,61 @@ class ArdavanNet_3(nn.Module):
         logits = self.endingBlock(x4)
         return logits
     
+
+class ArdavanNet_4(nn.Module):
+    """
+    Class for a simply neural network as a DL model
+    """
+    def __init__(self, batchSize):
+        """
+        Constructor of the model
+        """
+        super().__init__()
+        # Set the model
+        self.batchSize = batchSize
+        self.inputSize = 1
+        self.hiddenSize = 11
+        self.numLayer = 3
+        self.lstmLayer = nn.LSTM(input_size=self.inputSize, hidden_size=self.hiddenSize, num_layers=self.numLayer, batch_first=True)
+        self.fc = nn.Sequential(
+            nn.Linear(in_features=11, out_features=256, bias=True),
+            nn.ReLU(),
+            nn.Dropout(p=0.5, inplace=False),
+            nn.Linear(in_features=256, out_features=256, bias=True),
+            nn.ReLU(),
+            nn.Linear(in_features=256, out_features=256, bias=True),
+            nn.ReLU(),
+            nn.Dropout(p=0.5, inplace=False),
+            nn.Linear(in_features=256, out_features=32, bias=True),
+            nn.ReLU(),
+            nn.Linear(in_features=32, out_features=3, bias=True)
+        )
+
+    def forward(self, input):
+        # print(input.shape)
+        # input3d = self.sequenceGenerator(input.numpy(), 11)
+        input3d = input.reshape(self.batchSize, -1, self.inputSize)
+        # print(input[0])
+        # print(input3d[0].reshape(1, 11))
+        self.h = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize)))
+        self.c = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize)))
+        output, (h_n, c_n) = self.lstmLayer(input3d, (self.h, self.c))
+        logits = self.fc(output[:,-1,:])
+
+        return logits
+
+    def sequenceGenerator (self, input, featureSize):
+        sampleList = []
+        sequentialInput = []
+        size = featureSize - self.inputSize + 1
+        for sample in input:
+            sampleList.clear()
+            for i in range(size):
+                sequence = sample[i:i+self.inputSize]
+                sampleList.append(sequence)
+            sequentialInput.append(sampleList)
+        
+        return torch.tensor(np.array(sequentialInput))
+
+
+

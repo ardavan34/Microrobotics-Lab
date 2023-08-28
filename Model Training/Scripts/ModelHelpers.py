@@ -73,12 +73,12 @@ def testDataCollector():
     inputDf = inputDf.multiply(selectedCols)
     outputDf = df[['msdFieldvalue_mT_1', 'msdFieldvalue_mT_2', 'msdFieldvalue_mT_3']]
 
-    testInArray = np.empty((100, 11), dtype=float)
-    testOutArray = np.empty((100, 3), dtype=float)
+    testInArray = np.empty((100, 1, 11), dtype=float)
+    testOutArray = np.empty((100, 1, 3), dtype=float)
     for row in range(len(df.index)):
         normalizedInput = normalize(inputDf.loc[pd.Index([row])].to_numpy().T)
-        testInArray[row] = normalizedInput.T
-        testOutArray[row] = outputDf.loc[pd.Index([row])].to_numpy()
+        testInArray[row][0] = normalizedInput.T
+        testOutArray[row][0] = outputDf.loc[pd.Index([row])].to_numpy()
     
     return torch.tensor(testInArray), torch.tensor(testOutArray)
 
@@ -107,6 +107,7 @@ def train(dataloader, model, lossFunc, optimizer, device):
         X, y = X.to(device), y.to(device)
         
         # Compute prediction error
+        model.batchSize = X.shape[0]
         pred = model(X)
         loss = lossFunc(pred, y)
 
@@ -131,9 +132,8 @@ def test(testInput, testActualOutput, model, lossFunc, device):
     lossTot = 0
 
     for (setInput, setActualOutput) in zip(testInput, testActualOutput):
-        torch.tensor([list(setInput)])
-        torch.reshape(setActualOutput, (1, len(setActualOutput)))
         X, y = setInput.to(device), setActualOutput.to(device)
+        model.batchSize = X.shape[0]
         pred = model(X)
         loss = lossFunc(pred, y)
         lossTot += loss.item()
