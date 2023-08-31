@@ -1,0 +1,53 @@
+Parameters:
+    hyperparam = {'neuralNet': ArdavanNet_4(batchSize=512), 'modelName': "ArdavanNet_4", 'batchSize': 256,
+                  'learning rate': 1e-3, 'lossFunction': torch.nn.MSELoss(), 'epochsNum': 1500}
+    hyperparam['optimizer'] = torch.optim.Adam(model.parameters(), lr=hyperparam['learning rate'], weight_decay=1e-3)
+
+
+Network Architecture:
+    ArdavanNet_4(
+        (lstmLayer): LSTM(1, 11, num_layers=3, batch_first=True)
+        (fc): Sequential(
+            (0): Linear(in_features=11, out_features=256, bias=True)
+            (1): ReLU()
+            (2): Dropout(p=0.5, inplace=False)
+            (3): Linear(in_features=256, out_features=256, bias=True)
+            (4): ReLU()
+            (5): Linear(in_features=256, out_features=256, bias=True)
+            (6): ReLU()
+            (7): Dropout(p=0.5, inplace=False)
+            (8): Linear(in_features=256, out_features=32, bias=True)
+            (9): ReLU()
+            (10): Linear(in_features=32, out_features=3, bias=True)
+        )
+    )
+
+
+Forward:
+    self.batchSize = batchSize
+    self.device = 'cpu'
+    self.inputSize = 1
+    self.hiddenSize = 11
+    self.numLayer = 3
+
+    def forward(self, input):
+        input3d = input.reshape(self.batchSize, -1, self.inputSize)
+        self.h = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize))).to(device=self.device)
+        self.c = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize))).to(device=self.device)
+        output, (h_n, c_n) = self.lstmLayer(input3d, (self.h, self.c))
+        logits = self.fc(output[:,-1,:])
+
+        return logits
+
+    def sequenceGenerator (self, input, featureSize):
+        sampleList = []
+        sequentialInput = []
+        size = featureSize - self.inputSize + 1
+        for sample in input:
+            sampleList.clear()
+            for i in range(size):
+                sequence = sample[i:i+self.inputSize]
+                sampleList.append(sequence)
+            sequentialInput.append(sampleList)
+        
+        return torch.tensor(np.array(sequentialInput))

@@ -144,13 +144,14 @@ class ArdavanNet_4(nn.Module):
     """
     Class for a simply neural network as a DL model
     """
-    def __init__(self, batchSize):
+    def __init__(self, batchSize=1):
         """
         Constructor of the model
         """
         super().__init__()
         # Set the model
         self.batchSize = batchSize
+        self.device = 'cpu'
         self.inputSize = 1
         self.hiddenSize = 11
         self.numLayer = 3
@@ -170,13 +171,9 @@ class ArdavanNet_4(nn.Module):
         )
 
     def forward(self, input):
-        # print(input.shape)
-        # input3d = self.sequenceGenerator(input.numpy(), 11)
         input3d = input.reshape(self.batchSize, -1, self.inputSize)
-        # print(input[0])
-        # print(input3d[0].reshape(1, 11))
-        self.h = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize))).to(device='cuda')
-        self.c = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize))).to(device='cuda')
+        self.h = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize))).to(device=self.device)
+        self.c = torch.tensor(np.zeros((self.numLayer, self.batchSize, self.hiddenSize))).to(device=self.device)
         output, (h_n, c_n) = self.lstmLayer(input3d, (self.h, self.c))
         logits = self.fc(output[:,-1,:])
 

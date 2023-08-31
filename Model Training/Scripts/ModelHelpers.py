@@ -142,6 +142,7 @@ def test(testInput, testActualOutput, model, lossFunc, device):
 
 def graph(trainLossList, trainDevLossList, testLossList, modelName):
 
+    # Graph the error plot for the train, train-dev, and test databases
     x = np.linspace(1, len(trainLossList), len(trainLossList))
     trainLoss = np.array(trainLossList)
     trainDevLoss = np.array(trainDevLossList)
